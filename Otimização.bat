@@ -313,9 +313,9 @@ REM PowerShell -Command "Get-AppxPackage *Microsoft.WindowsStore* | Remove-AppxP
 
 REM ***Instalar Chocolatey***
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+call %programdata%\chocolatey\bin\RefreshEnv.cmd
 
 REM ***Instalar Clientes Jogos***
-call %programdata%\chocolatey\bin\RefreshEnv.cmd
 choco install goggalaxy -y
 choco install steam -y
 choco install origin -y
