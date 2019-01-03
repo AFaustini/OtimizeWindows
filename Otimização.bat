@@ -104,7 +104,7 @@ powercfg -h off
 
 REM *** Desabilitar memória virtual ***
 wmic computersystem where name="%computername%" set AutomaticManagedPagefile=False
-wmic pagefile delete
+wmic pagefileset where name="C:\\pagefile.sys" delete
 
 REM *** Desabilitar Superfetch ***
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters" /v "EnableSuperfetch" /t REG_DWORD /d 00000000 /f
