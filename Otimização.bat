@@ -2,10 +2,11 @@
 sc stop DiagTrack
 sc stop diagnosticshub.standardcollector.service
 sc stop dmwappushservice
-sc stop WMPNetworkSvc
-sc stop WSearch
-sc stop lmhosts
+sc stop RemoteRegistry
 sc stop TrkWks
+sc stop WMPNetworkSvc
+sc stop SysMain
+sc stop lmhosts
 sc stop VSS
 sc stop RemoteAccess
 sc stop WSearch
@@ -17,10 +18,8 @@ sc config dmwappushservice start= disabled
 sc config RemoteRegistry start= disabled
 sc config TrkWks start= disabled
 sc config WMPNetworkSvc start= disabled
-sc config WSearch start= disabled
 sc config SysMain start= disabled
 sc config lmhosts start= disabled
-sc config TrkWks start= disabled
 sc config VSS start= disabled
 sc config RemoteAccess start= disabled
 sc config WSearch start= disabled
