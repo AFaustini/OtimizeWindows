@@ -330,7 +330,6 @@ PowerShell -Command "Get-AppxPackage *GetHelp* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *MarchofEmpires* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Wallet* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *MixedReality.Portal* | Remove-AppxPackage"
-PowerShell -Command "Get-AppxPackage *MixedReality.Portal* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *OneConnect* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *DisneyMagicKingdoms* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *MsPaint* | Remove-AppxPackage"
@@ -338,7 +337,6 @@ PowerShell -Command "Get-AppxPackage *Print3D* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *TuneInRadio* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft3DViewer* | Remove-AppxPackage"
-
 
 REM ***Instalar Chocolatey***
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
