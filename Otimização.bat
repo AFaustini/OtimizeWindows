@@ -187,7 +187,10 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 REM *** Show file extensions in Explorer ***
 REM reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t  REG_DWORD /d 0 /f
 
-REM *** Uninstall OneDrive ***
+REM *** Desabilitar Armazenamento Reservado ***
+REM reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager" /v "ShippedWithReserves" /t  REG_DWORD /d 0 /f
+
+REM *** Desinstalar OneDrive ***
 REM start /wait "" "%SYSTEMROOT%\SYSWOW64\ONEDRIVESETUP.EXE" /UNINSTALL
 REM rd C:\OneDriveTemp /Q /S >NUL 2>&1
 REM rd "%USERPROFILE%\OneDrive" /Q /S >NUL 2>&1
