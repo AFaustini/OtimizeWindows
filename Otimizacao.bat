@@ -40,6 +40,7 @@ schtasks /Change /TN "Microsoft\Windows\Shell\FamilySafetyUpload" /Disable
 schtasks /Change /TN "Microsoft\Office\OfficeTelemetryAgentLogOn" /Disable
 schtasks /Change /TN "Microsoft\Office\OfficeTelemetryAgentFallBack" /Disable
 schtasks /Change /TN "Microsoft\Office\Office 15 Subscription Heartbeat" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /Disable
 
 REM schtasks /Change /TN "Microsoft\Windows\Autochk\Proxy" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /Disable
