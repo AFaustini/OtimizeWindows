@@ -69,14 +69,13 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Sta
 
 @REM Configurações -> Privacidade -> Geral -> Permitir aplicativos usar meu ID de propaganda
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
-REM - Smart Scrren para aplicativos da Store
+REM - Smart Screen para aplicativos da Store
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost" /v EnableWebContentEvaluation /t REG_DWORD /d 0 /f
 REM - Let websites provide locally...
 reg add "HKCU\Control Panel\International\User Profile" /v HttpAcceptLanguageOptOut /t REG_DWORD /d 1 /f
 
-@REM WiFi Sense: HotSpot Sharing: Disable
+@REM Desabilitar Sensor de Wifi
 reg add "HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" /v value /t REG_DWORD /d 0 /f
-@REM WiFi Sense: Shared HotSpot Auto-Connect: Disable
 reg add "HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" /v value /t REG_DWORD /d 0 /f
 
 @REM Mudar updates para notificar o agendamento de reinicialização
@@ -87,16 +86,16 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Con
 @REM *** Desabilitar Cortana e Telemetria ***
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "AllowCortana" /t REG_DWORD /d 0 /f
 
-REM *** Hide the search box from taskbar. You can still search by pressing the Win key and start typing what you're looking for ***
-REM 0 = hide completely, 1 = show only icon, 2 = show long search box
+REM *** Esconder a caixa de Procura da barra de Tarefas. Você ainda pode pesquisar apertando Win + o que você quer pesquisar. ***
+REM 0 = esconder completamente, 1 = mostrar apenas ícone, 2 = Mostrar caixa completa
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f
 
-REM *** Disable MRU lists (jump lists) of XAML apps in Start Menu ***
+REM *** Desabilitar Jump lists dos apps XAML no menu iniciar ***
 REM reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_TrackDocs" /t REG_DWORD /d 0 /f
 
-REM *** Set Windows Explorer to start on This PC instead of Quick Access ***
-REM 1 = This PC, 2 = Quick access
-REM reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
+REM *** Configurar Windows Explorer para iniciar no Este Computador, ao invés de Acesso Rápido ***
+REM 1 = Este Computador, 2 = Acesso Rápido
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
 
 REM *** Desabilitar sugestões no Menu Iniciar ***
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SystemPaneSuggestionsEnabled" /t REG_DWORD /d 0 /f
@@ -180,14 +179,14 @@ REM *** Desabilitar SmartScreen ***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /V "EnableSmartScreen" /T REG_DWORD /D 0 /F
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /V "ShellSmartScreenLevel" /F
 
-@rem NOW JUST SOME TWEAKS
-REM *** Show hidden files in Explorer ***
+@rem Apenas alguns tweaks
+REM *** Mostrar arquivos ocultos no Explorer ***
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f
  
-REM *** Show super hidden system files in Explorer ***
+REM *** Mostrar arquivos super ocultos no Explorer ***
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t REG_DWORD /d 1 /f
 
-REM *** Show file extensions in Explorer ***
+REM *** Mostrar extensões de arquivos no Explorer ***
 REM reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t  REG_DWORD /d 0 /f
 
 REM *** Desabilitar Armazenamento Reservado ***
@@ -209,7 +208,7 @@ REM pause
 REM start /wait TASKKILL /F /IM explorer.exe
 REM start explorer.exe.
 
-REM ***Remove Unused Features***
+REM *** Remover Features Não Usadas ***
 DISM.exe /Online /Disable-Feature /featurename:SimpleTCP  /Remove
 DISM.exe /Online /Disable-Feature /featurename:SNMP   /Remove
 DISM.exe /Online /Disable-Feature /featurename:WMISnmpProvider /Remove
