@@ -414,3 +414,4 @@ REM choco install xplorer2 -y
 REM choco install multicommander -y
 REM choco install winfile -y
 REM choco install regscanner -y
+choco install oldcalc -y
