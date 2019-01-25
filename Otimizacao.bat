@@ -12,6 +12,8 @@ sc stop RemoteAccess
 sc stop WSearch
 sc stop iphlpsvc
 sc stop DoSvc
+sc stop ICEsoundService
+sc stop NvTelemetryContainer
 
 sc config DiagTrack start= disabled
 sc config diagnosticshub.standardcollector.service start= disabled
@@ -26,6 +28,8 @@ sc config RemoteAccess start= disabled
 sc config WSearch start= disabled
 sc config iphlpsvc start= disabled
 sc config DoSvc start= disabled
+sc config ICEsoundService start= disabled
+sc config NvTelemetryContainer start= disabled
 
 REM *** Tweaks de tarefas agendadas ***
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
