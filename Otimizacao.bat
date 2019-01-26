@@ -351,6 +351,9 @@ PowerShell -Command "Get-AppxPackage *TuneInRadio* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft3DViewer* | Remove-AppxPackage"
 
+REM ***Instalar MVPS HOSTS (Desabilita propagandas e rastreadores**
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/robledosm/update-mvpsHosts/master/update-mvpsHosts.ps1'))"
+
 REM ***Instalar Chocolatey***
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 call %programdata%\chocolatey\bin\RefreshEnv.cmd
