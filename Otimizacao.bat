@@ -20,6 +20,14 @@ sc stop BDESVC
 sc stop TabletInputService
 sc stop SstpSvc
 sc stop NvTelemetryContainer
+sc stop HomeGroupListener
+sc stop HomeGroupProvider
+sc stop lfsvc
+sc stop MapsBroke
+sc stop NetTcpPortSharing
+sc stop SharedAccess
+sc stop WbioSrv
+sc stop WMPNetworkSvc
 
 sc config DiagTrack start= disabled
 sc config diagnosticshub.standardcollector.service start= disabled
@@ -42,6 +50,14 @@ sc config BDESVC start= disabled
 sc config TabletInputService start= disabled
 sc config SstpSvc start= disabled
 sc config NvTelemetryContainer start= disabled
+sc config HomeGroupListener start= disabled
+sc config HomeGroupProvider start= disabled
+sc config lfsvc start= disabled
+sc config MapsBroke start= disabled
+sc config NetTcpPortSharing start= disabled
+sc config SharedAccess start= disabled
+sc config WbioSrv start= disabled
+sc config WMPNetworkSvc start= disabled
 
 REM *** Tweaks de tarefas agendadas ***
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
@@ -160,7 +176,6 @@ reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v "FontSmoothing" /t REG_SZ /
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V "ListviewShadow" /T REG_DWORD /D 1 /F
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /V "AlwaysHibernateThumbnails" /T REG_DWORD /D 0 /F
 
-
 REM *** Desabilitar Game Bar e DVR ***
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /V "AppCaptureEnabled" /T REG_DWORD /D 0 /F
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /V "GameDVR_Enabled" /T REG_DWORD /D 0 /F
@@ -246,8 +261,16 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeli
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "RotatingLockScreenOverlayEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-310093Enabled" /t REG_DWORD /d 0 /f
 
+REM *** Desabilitar acessibilidade de teclado ***
+reg add "HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys" /v "Flags" /t REG_SZ /d 506 /f
+reg add "HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response" /v "Flags" /t REG_SZ /d 122 /f
+reg add "HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys" /v "Flags" /t REG_SZ /d 58 /f
+
 REM *** Desabilitar Apps em Segundo Plano ***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsRunInBackground" /t REG_DWORD /d 2 /f
+
+REM *** Desabilitar download automatico de drivers ***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" /v "SearchOrderConfig" /t REG_DWORD /d 0 /f
 
 REM *** Desabilitar Edge em Segundo Plano ***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "SyncFavoritesBetweenIEAndMicrosoftEdge" /t REG_DWORD /d 1 /f
@@ -255,6 +278,19 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "AllowPrelaunch" /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /v "PreventTabPreloading" /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /v "AllowTabPreloading" /t REG_DWORD /d 0 /f
+
+REM *** Tweaks variados de privacidade ***
+PowerShell -Command "Set-WindowsSearchSetting -EnableWebResultsSetting $false"
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Personalization\Settings" /v "AcceptedPrivacyPolicy" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" /v "HarvestContacts" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputPersonalization" /v "RestrictImplicitInkCollection" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputPersonalization" /v "RestrictImplicitTextCollection" /t REG_DWORD /d 0 /f
+reg add "SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" /v "Type" /t REG_SZ /d LooselyCoupled /f
+reg add "SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" /v "Value" /t REG_SZ /d Deny /f
+reg add "SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" /v "InitialAppValue" /t REG_SZ /d Unspecified /f
+reg add "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" /v "SensorPermissionState" /t REG_DWORD /d 0 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\features" /v "WiFiSenseCredShared" /t REG_DWORD /d 0 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\features" /v "WiFiSenseOpen" /t REG_DWORD /d 0 /f
 
 REM *** Desinstalar OneDrive ***
 REM start /wait "" "%SYSTEMROOT%\SYSWOW64\ONEDRIVESETUP.EXE" /UNINSTALL
@@ -405,10 +441,64 @@ PowerShell -Command "Get-AppxPackage *MsPaint* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Print3D* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *TuneInRadio* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage"
-PowerShell -Command "Get-AppxPackage *Microsoft3DViewer* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Appconnector* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Advertising.Xaml* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *MicrosoftSolitaireCollection* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *MicrosoftPowerBIForWindows* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *MinecraftUWP* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *NetworkSpeedTest* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsPhone* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *ZuneMusic* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *ZuneVideo* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Messaging* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *OneConnect* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsReadingList* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *YourPhone* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Flipboard* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Shazam* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *CandyCrushSaga* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *iHeartRadio* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Netflix* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Wunderlist* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *DrawboardPDF* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *PhotoStudio* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *FarmVille2CountryEscape* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Asphalt8Airborne* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Facebook* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *RoyalRevolt2* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *CaesarsSlotsFreeCasino* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Keeper* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *PhototasticCollage* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *XING* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *AutodeskSketchBook* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Duolingo-LearnLanguagesforFree* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *EclipseManager* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *562882FEEB491* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *DolbyAccess* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *SpotifyMusic* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WinZipUniversal* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Plex* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *LinkedInforWindows* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *PolarrPhotoEditorAcademicEdition* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *FitbitCoach* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *COOKINGFEVER* | Remove-AppxPackage"
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "FeatureManagementEnabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "OemPreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "ContentDeliveryAllowed" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEverEnabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContentEnabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338388Enabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338389Enabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-314559Enabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338387Enabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338393Enabled" /t REG_DWORD /d 0 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v "AutoDownload" /t REG_DWORD /d 2 /f
+reg add "SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f
 
-REM ***Instalar MVPS HOSTS (Desabilita propagandas e rastreadores**
+REM ***Instalar MVPS HOSTS (Desabilita propagandas e rastreadores)
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/robledosm/update-mvpsHosts/master/update-mvpsHosts.ps1'))"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/W4RH4WK/Debloat-Windows-10/master/scripts/block-telemetry.ps1'))"
 
 REM ***Instalar Chocolatey***
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
