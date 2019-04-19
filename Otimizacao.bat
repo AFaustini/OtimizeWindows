@@ -333,6 +333,10 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management
 REM *** Desabilitar inicialização rápida ***
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V HiberbootEnabled /T REG_dWORD /D 0 /F
 
+
+REM *** Desabilitar Notificações Balão ***
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V EnableBalloonTips /T REG_dWORD /D 0 /F
+
 REM *** Tweaks de Rede ***
 netsh interface teredo set state disable
 netsh interface 6to4 set state disable disable
