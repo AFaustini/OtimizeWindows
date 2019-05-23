@@ -5,7 +5,7 @@ Criei um mega script de otimização do windows, retirando essas tranqueiras de 
 
 Só colar no bloco de notas e salvar como .bat, e executar como administrador. (não esquecer de gerar um ponto de recuperação, para caso não saia como você goste).
 
-Lembrando que cada um pode customizar para uso próprio. Acho que expliquei o que cada linha faz. É só retirar ou incluir a tag REM em cada linha.
+Lembrando que cada um pode customizar para uso próprio. Acho que expliquei o que cada linha faz. Para habilitar ou desabilitar algum comando, é só retirar ou incluir a tag REM em cada linha.
 
 Nesta versão, ela também instala o chocolatey o que permite, inclusive, a instalação dos programas que quiser. É só colocar ou tirar o REM de cada linha.
 
