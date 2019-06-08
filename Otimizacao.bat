@@ -609,11 +609,11 @@ Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((
 call %programdata%\chocolatey\bin\RefreshEnv.cmd
 
 REM ***Instalar Clientes de Jogos ***
-choco install goggalaxy -y
-choco install steam -y
-choco install origin -y
-choco install uplay -y
-choco install epicgameslauncher -y
+REM choco install goggalaxy -y
+REM choco install steam -y
+REM choco install origin -y
+REM choco install uplay -y
+REM choco install epicgameslauncher -y
 
 REM ***Instalar Emuladores***
 REM choco install retroarch -y
@@ -671,6 +671,9 @@ REM choco install xplorer2 -y
 REM choco install multicommander -y
 REM choco install winfile -y
 REM choco install regscanner -y
+REM choco install intel-chipset-device-software -y
+REM choco install intel-rst-driver -y
+REM choco install intel-graphics-driver -y
 choco install oldcalc -y
 
 REM ***Desabilitar telemetria 2.0***
