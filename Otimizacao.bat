@@ -627,34 +627,26 @@ REM choco install snes9x -y
 REM choco install visualboyadvance -y
 REM choco install winvice -y
 
-REM ***Instalar Outros Aplicativos***
-choco install oldcalc -y
-REM choco install 7zip.install -y
-REM choco install 7zip.portable -y
-REM choco install bleachbit -y
-REM choco install calibre -y
-REM choco install ccleaner -y
-REM choco install ccleaner.portable -y
-REM choco install chromium -y
-REM choco install compactgui -y
-REM choco install cpu-z.install -y
-REM choco install cpu-z.portable -y
-REM choco install defraggler -y
-REM choco install directx -y
-REM choco install discord -y
-REM choco install dropbox -y
-REM choco install eset.nod32 -y
-REM choco install f.lux.install  -y
-REM choco install f.lux.portable -y
-REM choco install falkon -y
-REM choco install firefox -y
-REM choco install foobar2000 -y
-REM choco install gpu-z -y
-REM choco install hwinfo.install  -y
-REM choco install hwinfo.portable -y
+REM ***Instalar Drivers***
 REM choco install intel-chipset-device-software -y
 REM choco install intel-graphics-driver -y
 REM choco install intel-rst-driver -y
+REM choco install nvidia-display-driver -y
+REM choco install realtek-hd-audio-driver -y
+
+REM ***Instalar Navegadores e Programas para Internet***
+REM choco install chromium -y
+REM choco install dropbox -y
+REM choco install falkon -y
+REM choco install firefox -y
+REM choco install opera -y
+REM choco install picotorrent.install -y
+REM choco install picotorrent.portable -y
+REM choco install vivaldi -y
+
+REM ***Instalar Aplicativos***
+REM choco install calibre -y
+REM choco install foobar2000 -y
 REM choco install irfanview -y
 REM choco install kis -y
 REM choco install kodi -y
@@ -670,34 +662,47 @@ REM choco install msiafterburner -y
 REM choco install multicommander -y
 REM choco install notepadplusplus.install -y
 REM choco install notepadplusplus.commandline -y
-REM choco install nvidia-display-driver -y
 REM choco install office365proplus -y
+REM choco install oldcalc -y
 REM choco install openal -y
-REM choco install opera -y
 REM choco install paint.net -y
-REM choco install picotorrent.install -y
-REM choco install picotorrent.portable -y
 REM choco install playnite -y
 REM choco install quicklook -y
 REM choco install quiterss -y
-REM choco install rainmeter -y
-REM choco install realtek-hd-audio-driver -y
-REM choco install recuva -y
-REM choco install recuva.portable -y
-REM choco install regscanner -y
-REM choco install renamer -y
 REM choco install rocketdock -y
 REM choco install speccy -y
 REM choco install sumatrapdf.install  -y
 REM choco install sumatrapdf.commandline -y
 REM choco install vidcoder -y
-REM choco install vivaldi -y
 REM choco install vlc -y
 REM choco install windowblinds -y
 REM choco install winfile -y
 REM choco install winyl-player =y
-REM choco install wiztree -y
 REM choco install xplorer2 -y
+
+REM ***Instalar Utilitários***
+REM choco install 7zip.install -y
+REM choco install 7zip.portable -y
+REM choco install bleachbit -y
+REM choco install ccleaner -y
+REM choco install ccleaner.portable -y
+REM choco install compactgui -y
+REM choco install cpu-z.install -y
+REM choco install cpu-z.portable -y
+REM choco install defraggler -y
+REM choco install directx -y
+REM choco install eset.nod32 -y
+REM choco install f.lux.install  -y
+REM choco install f.lux.portable -y
+REM choco install gpu-z -y
+REM choco install hwinfo.install  -y
+REM choco install hwinfo.portable -y
+REM choco install rainmeter -y
+REM choco install recuva -y
+REM choco install recuva.portable -y
+REM choco install regscanner -y
+REM choco install renamer -y
+REM choco install wiztree -y
 
 REM ***Desabilitar telemetria 2.0***
 @echo off
