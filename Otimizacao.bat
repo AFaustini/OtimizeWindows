@@ -610,99 +610,99 @@ call %programdata%\chocolatey\bin\RefreshEnv.cmd
 
 REM ***Instalar Clientes de Jogos ***
 REM choco install epicgameslauncher -y
-REM choco install goggalaxy -y
-REM choco install origin -y
-REM choco install steam -y
-REM choco install uplay -y
+REM cinst goggalaxy -y
+REM cinst origin -y
+REM cinst steam -y
+REM cinst uplay -y
 
 REM ***Instalar Emuladores***
-REM choco install cemu -y
-REM choco install dolphin -y
-REM choco install fs-uae -y
-REM choco install mame -y
-REM choco install nestopia -y
-REM choco install ppsspp -y
-REM choco install retroarch -y
-REM choco install snes9x -y
-REM choco install visualboyadvance -y
-REM choco install winvice -y
+REM cinst cemu -y
+REM cinst dolphin -y
+REM cinst fs-uae -y
+REM cinst mame -y
+REM cinst nestopia -y
+REM cinst ppsspp -y
+REM cinst retroarch -y
+REM cinst snes9x -y
+REM cinst visualboyadvance -y
+REM cinst winvice -y
 
 REM ***Instalar Drivers***
-REM choco install intel-chipset-device-software -y
-REM choco install intel-graphics-driver -y
-REM choco install intel-rst-driver -y
-REM choco install nvidia-display-driver -y
-REM choco install realtek-hd-audio-driver -y
+REM cinst intel-chipset-device-software -y
+REM cinst intel-graphics-driver -y
+REM cinst intel-rst-driver -y
+REM cinst nvidia-display-driver -y
+REM cinst realtek-hd-audio-driver -y
 
 REM ***Instalar Navegadores e Programas para Internet***
-REM choco install chromium -y
-REM choco install dropbox -y
-REM choco install falkon -y
-REM choco install firefox -y
-REM choco install opera -y
-REM choco install picotorrent.install -y
-REM choco install picotorrent.portable -y
-REM choco install vivaldi -y
+REM cinst chromium -y
+REM cinst dropbox -y
+REM cinst falkon -y
+REM cinst firefox -y
+REM cinst opera -y
+REM cinst picotorrent.install -y
+REM cinst picotorrent.portable -y
+REM cinst vivaldi -y
 
 REM ***Instalar Aplicativos***
-REM choco install calibre -y
-REM choco install foobar2000 -y
-REM choco install irfanview -y
-REM choco install kis -y
-REM choco install kodi -y
-REM choco install launchyqt -y
-REM choco install libreoffice-fresh -y
-REM choco install mactype -y
-REM choco install memreduct -y
-REM choco install mkvtoolnix -y
-REM choco install mkvtoolnix.portable -y
-REM choco install mpc-hc-clsid2  -y
-REM choco install mpc-be -y
-REM choco install msiafterburner -y
-REM choco install multicommander -y
-REM choco install notepadplusplus.install -y
-REM choco install notepadplusplus.commandline -y
-REM choco install office365proplus -y
-REM choco install oldcalc -y
-REM choco install openal -y
-REM choco install paint.net -y
-REM choco install playnite -y
-REM choco install quicklook -y
-REM choco install quiterss -y
-REM choco install rocketdock -y
-REM choco install speccy -y
-REM choco install sumatrapdf.install  -y
-REM choco install sumatrapdf.commandline -y
-REM choco install vidcoder -y
-REM choco install vlc -y
-REM choco install windowblinds -y
-REM choco install winfile -y
-REM choco install winyl-player =y
-REM choco install xplorer2 -y
+REM cinst calibre -y
+REM cinst foobar2000 -y
+REM cinst irfanview -y
+REM cinst kis -y
+REM cinst kodi -y
+REM cinst launchyqt -y
+REM cinst libreoffice-fresh -y
+REM cinst mactype -y
+REM cinst memreduct -y
+REM cinst mkvtoolnix -y
+REM cinst mkvtoolnix.portable -y
+REM cinst mpc-hc-clsid2  -y
+REM cinst mpc-be -y
+REM cinst msiafterburner -y
+REM cinst multicommander -y
+REM cinst notepadplusplus.install -y
+REM cinst notepadplusplus.commandline -y
+REM cinst office365proplus -y
+REM cinst oldcalc -y
+REM cinst openal -y
+REM cinst paint.net -y
+REM cinst playnite -y
+REM cinst quicklook -y
+REM cinst quiterss -y
+REM cinst rocketdock -y
+REM cinst speccy -y
+REM cinst sumatrapdf.install  -y
+REM cinst sumatrapdf.commandline -y
+REM cinst vidcoder -y
+REM cinst vlc -y
+REM cinst windowblinds -y
+REM cinst winfile -y
+REM cinst winyl-player =y
+REM cinst xplorer2 -y
 
 REM ***Instalar Utilitários***
-REM choco install 7zip.install -y
-REM choco install 7zip.portable -y
-REM choco install bleachbit -y
-REM choco install ccleaner -y
-REM choco install ccleaner.portable -y
-REM choco install compactgui -y
-REM choco install cpu-z.install -y
-REM choco install cpu-z.portable -y
-REM choco install defraggler -y
-REM choco install directx -y
-REM choco install eset.nod32 -y
-REM choco install f.lux.install  -y
-REM choco install f.lux.portable -y
-REM choco install gpu-z -y
-REM choco install hwinfo.install  -y
-REM choco install hwinfo.portable -y
-REM choco install rainmeter -y
-REM choco install recuva -y
-REM choco install recuva.portable -y
-REM choco install regscanner -y
-REM choco install renamer -y
-REM choco install wiztree -y
+REM cinst 7zip.install -y
+REM cinst 7zip.portable -y
+REM cinst bleachbit -y
+REM cinst ccleaner -y
+REM cinst ccleaner.portable -y
+REM cinst compactgui -y
+REM cinst cpu-z.install -y
+REM cinst cpu-z.portable -y
+REM cinst defraggler -y
+REM cinst directx -y
+REM cinst eset.nod32 -y
+REM cinst f.lux.install  -y
+REM cinst f.lux.portable -y
+REM cinst gpu-z -y
+REM cinst hwinfo.install  -y
+REM cinst hwinfo.portable -y
+REM cinst rainmeter -y
+REM cinst recuva -y
+REM cinst recuva.portable -y
+REM cinst regscanner -y
+REM cinst renamer -y
+REM cinst wiztree -y
 
 REM ***Desabilitar telemetria 2.0***
 @echo off
