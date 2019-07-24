@@ -767,3 +767,6 @@ schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\ProgramDataUp
 schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\AitAgent" >nul 2>&1
 schtasks /Delete /F /TN "\Microsoft\Windows\PerfTrack\BackgroundConfigSurveyor" >nul 2>&1
 TIMEOUT /T 5
+
+taskkill /f /im explorer.exe
+start explorer.exe
