@@ -415,6 +415,9 @@ REM pause
 REM start /wait TASKKILL /F /IM explorer.exe
 REM start explorer.exe.
 
+REM *** Instalar .NET Framework 3.5 ***
+Dism /online /Enable-Feature /FeatureName:"NetFx3"
+
 REM *** Remover Features Não Usadas ***
 DISM.exe /Online /Disable-Feature /featurename:SimpleTCP  /Remove
 DISM.exe /Online /Disable-Feature /featurename:SNMP   /Remove
