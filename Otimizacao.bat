@@ -418,6 +418,11 @@ REM start explorer.exe.
 REM *** Instalar .NET Framework 3.5 ***
 Dism /online /Enable-Feature /FeatureName:"NetFx3"
 
+REM *** Dark Mode Janelas Win32 ***
+Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
+Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColor /t REG_DWORD /d 171717 /f
+Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColorInactive /t REG_DWORD /d 444444 /f
+
 REM *** Remover Features Não Usadas ***
 DISM.exe /Online /Disable-Feature /featurename:SimpleTCP  /Remove
 DISM.exe /Online /Disable-Feature /featurename:SNMP   /Remove
