@@ -26,8 +26,23 @@ sc stop lfsvc
 sc stop MapsBroke
 sc stop NetTcpPortSharing
 sc stop SharedAccess
-sc stop WbioSrv
+sc stop WbioSrvc
 sc stop WMPNetworkSvc
+sc stop wisvc
+sc stop TapiSrv
+sc stop SmsRouter
+sc stop SharedRealitySvc
+sc stop ScDeviceEnum
+sc stop SCardSvr
+sc stop RetailDemo
+sc stop PhoneSvc
+sc stop perceptionsimulation
+sc stop BTAGService
+sc stop AJRouter
+sc stop CDPSvc
+sc stop ShellHWDetection
+sc stop RstMwService
+sc stop DusmSvc
 
 sc config DiagTrack start= disabled
 sc config diagnosticshub.standardcollector.service start= disabled
@@ -56,8 +71,24 @@ sc config lfsvc start= disabled
 sc config MapsBroke start= disabled
 sc config NetTcpPortSharing start= disabled
 sc config SharedAccess start= disabled
-sc config WbioSrv start= disabled
+sc config WbioSrvc start= disabled
 sc config WMPNetworkSvc start= disabled
+sc config wisvc start= disabled
+sc config TapiSrv start= disabled
+sc config SmsRouter start= disabled
+sc config SharedRealitySvc start= disabled
+sc config ScDeviceEnum start= disabled
+sc config SCardSvr start= disabled
+sc config RetailDemo start= disabled
+sc config PhoneSvc start= disabled
+sc config perceptionsimulation start= disabled
+sc config BTAGService start= disabled
+sc config AJRouter start= disabled
+sc config CDPSvc start= disabled
+sc config ShellHWDetection start= disabled
+sc config RstMwService start= disabled
+sc config DusmSvc start= disabled
+
 
 REM *** Tweaks de tarefas agendadas ***
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
