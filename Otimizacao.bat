@@ -552,7 +552,7 @@ DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V-Management-Clie
 DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V-Management-PowerShell /Remove
 
 REM Remover Apps da Store
-Get-AppxPackage | where-object {$_.name –notlike "*store*"} | Remove-AppxPackage
+Get-AppxPackage | where-object {$_.name –notlike '*store*'} | Remove-AppxPackage
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "FeatureManagementEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "OemPreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
