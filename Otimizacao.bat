@@ -447,7 +447,7 @@ REM start /wait TASKKILL /F /IM explorer.exe
 REM start explorer.exe.
 
 REM *** Instalar .NET Framework 3.5 ***
-Dism /online /Enable-Feature /FeatureName:"NetFx3"
+Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
 
 REM *** Dark Mode Janelas Win32 ***
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
@@ -455,101 +455,108 @@ Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColor /t REG_DWORD /d 171
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColorInactive /t REG_DWORD /d 444444 /f
 
 REM *** Remover Features Não Usadas ***
-DISM.exe /Online /Disable-Feature /featurename:SimpleTCP  /Remove
-DISM.exe /Online /Disable-Feature /featurename:SNMP   /Remove
-DISM.exe /Online /Disable-Feature /featurename:WMISnmpProvider /Remove
-DISM.exe /Online /Disable-Feature /featurename:Windows-Identity-Foundation  /Remove
-DISM.exe /Online /Disable-Feature /featurename:DirectoryServices-ADAM-Client /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WebServerRole /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WebServer /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-CommonHttpFeatures /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HttpErrors /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HttpRedirect /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ApplicationDevelopment /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-NetFxExtensibility /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-NetFxExtensibility45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HealthAndDiagnostics /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HttpLogging /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-LoggingLibraries /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-RequestMonitor /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HttpTracing  /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-Security /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-URLAuthorization /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-RequestFiltering /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-IPSecurity /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-Performance /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HttpCompressionDynamic /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WebServerManagementTools /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ManagementScriptingTools /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-IIS6ManagementCompatibility /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-Metabase /Remove
-DISM.exe /Online /Disable-Feature /featurename:WAS-WindowsActivationService /Remove
-DISM.exe /Online /Disable-Feature /featurename:WAS-ProcessModel /Remove
-DISM.exe /Online /Disable-Feature /featurename:WAS-NetFxEnvironment /Remove
-DISM.exe /Online /Disable-Feature /featurename:WAS-ConfigurationAPI /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HostableWebCore /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-CertProvider /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WindowsAuthentication /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-DigestAuthentication /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ClientCertificateMappingAuthentication /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-IISCertificateMappingAuthentication /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ODBCLogging /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-StaticContent /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-DefaultDocument /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-DirectoryBrowsing /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WebDAV /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WebSockets /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ApplicationInit /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ASPNET /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ASPNET45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ASP /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-CGI /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ISAPIExtensions /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ISAPIFilter /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ServerSideIncludes /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-CustomLogging /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-BasicAuthentication /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-HttpCompressionStatic /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ManagementConsole /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-ManagementService /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-WMICompatibility /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-LegacyScripts /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-LegacySnapIn /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-FTPServer /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-FTPSvc /Remove
-DISM.exe /Online /Disable-Feature /featurename:IIS-FTPExtensibility /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-Container /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-Server /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-Triggers /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-ADIntegration /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-HTTP /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-Multicast /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSMQ-DCOMProxy /Remove
-DISM.exe /Online /Disable-Feature /featurename:WCF-HTTP-Activation45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:WCF-TCP-Activation45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:WCF-Pipe-Activation45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:WCF-MSMQ-Activation45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:WCF-HTTP-Activation /Remove
-DISM.exe /Online /Disable-Feature /featurename:WCF-NonHTTP-Activation /Remove
-DISM.exe /Online /Disable-Feature /featurename:NetFx4Extended-ASPNET45 /Remove
-DISM.exe /Online /Disable-Feature /featurename:MediaPlayback /Remove
-DISM.exe /Online /Disable-Feature /featurename:WindowsMediaPlayer /Remove
-DISM.exe /Online /Disable-Feature /featurename:Microsoft-Windows-MobilePC-Client-Premium-Package-net /Remove
-DISM.exe /Online /Disable-Feature /featurename:Printing-XPSServices-Features /Remove
-DISM.exe /Online /Disable-Feature /featurename:RasCMAK /Remove
-DISM.exe /Online /Disable-Feature /featurename:RasRip /Remove
-DISM.exe /Online /Disable-Feature /featurename:MSRDC-Infrastructure /Remove
-DISM.exe /Online /Disable-Feature /featurename:TelnetClient /Remove
-DISM.exe /Online /Disable-Feature /featurename:TelnetServer /Remove
-DISM.exe /Online /Disable-Feature /featurename:TFTP /Remove
-DISM.exe /Online /Disable-Feature /featurename:TIFFIFilter /Remove
-DISM.exe /Online /Disable-Feature /featurename:WorkFolders-Client /Remove
-DISM.exe /Online /Disable-Feature /featurename:SMB1Protocol /Remove
-DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V-All  /Remove
-DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V-Tools-All   /Remove
-DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V /Remove
-DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V-Management-Clients /Remove
-DISM.exe /Online /Disable-Feature /featurename:Microsoft-Hyper-V-Management-PowerShell /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:SimpleTCP /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:SNMP /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WMISnmpProvider /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Windows-Identity-Foundation /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:DirectoryServices-ADAM-Client /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WebServerRole /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WebServer /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-CommonHttpFeatures /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HttpErrors /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HttpRedirect /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ApplicationDevelopment /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-NetFxExtensibility /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-NetFxExtensibility45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HealthAndDiagnostics /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HttpLogging /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-LoggingLibraries /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-RequestMonitor /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HttpTracing /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-Security /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-URLAuthorization /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-RequestFiltering /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-IPSecurity /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-Performance /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HttpCompressionDynamic /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WebServerManagementTools /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ManagementScriptingTools /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-IIS6ManagementCompatibility /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-Metabase /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WAS-WindowsActivationService /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WAS-ProcessModel /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WAS-NetFxEnvironment /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WAS-ConfigurationAPI /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HostableWebCore /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-CertProvider /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WindowsAuthentication /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-DigestAuthentication /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ClientCertificateMappingAuthentication /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-IISCertificateMappingAuthentication /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ODBCLogging /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-StaticContent /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-DefaultDocument /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-DirectoryBrowsing /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WebDAV /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WebSockets /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ApplicationInit /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ASPNET /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ASPNET45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ASP /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-CGI /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ISAPIExtensions /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ISAPIFilter /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ServerSideIncludes /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-CustomLogging /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-BasicAuthentication /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-HttpCompressionStatic /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ManagementConsole /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-ManagementService /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WMICompatibility /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-LegacyScripts /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-LegacySnapIn /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-FTPServer /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-FTPSvc /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-FTPExtensibility /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-Container /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-Server /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-Triggers /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-ADIntegration /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-HTTP /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-Multicast /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSMQ-DCOMProxy /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-HTTP-Activation45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-TCP-Activation45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-Pipe-Activation45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-MSMQ-Activation45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-HTTP-Activation /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-NonHTTP-Activation /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:NetFx4Extended-ASPNET45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MediaPlayback /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WindowsMediaPlayer /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Windows-MobilePC-Client-Premium-Package-net /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-XPSServices-Features /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:RasCMAK /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:RasRip /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:MSRDC-Infrastructure /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:TelnetClient /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:TelnetServer /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:TFTP /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:TIFFIFilter /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WorkFolders-Client /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:SMB1Protocol /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Hyper-V-All /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Hyper-V-Tools-All /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Hyper-V /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Hyper-V-Management-Clients /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Hyper-V-Management-PowerShell /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:SearchEngine-Client-Package /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-TCP-PortSharing45 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:SmbDirect /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Internet-Explorer-Optional-amd64 /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-Features /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:FaxServicesClientPackage /Remove
+DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
 
 REM Remover Apps da Store
 Get-AppxPackage | where-object {$_.name –notlike '*store*'} | Remove-AppxPackage
@@ -575,9 +582,9 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v "AutoDo
 reg add "SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f
 
 REM ***Instalar MVPS HOSTS (Desabilita propagandas e rastreadores)***
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/robledosm/update-mvpsHosts/master/update-mvpsHosts.ps1'))"
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/W4RH4WK/Debloat-Windows-10/master/scripts/block-telemetry.ps1'))"
-ipconfig /flushdns
+REM Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/robledosm/update-mvpsHosts/master/update-mvpsHosts.ps1'))"
+REM Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/W4RH4WK/Debloat-Windows-10/master/scripts/block-telemetry.ps1'))"
+REM ipconfig /flushdns
 reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache\Parameters" /v "MaxNegativeCacheTtl" /t "REG_DWORD" /d "0" /f
 reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache\Parameters" /v "MaxCacheTtl" /t "REG_DWORD" /d "1" /f
 
@@ -732,6 +739,5 @@ schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\ProgramDataUp
 schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\AitAgent" >nul 2>&1
 schtasks /Delete /F /TN "\Microsoft\Windows\PerfTrack\BackgroundConfigSurveyor" >nul 2>&1
 TIMEOUT /T 5
-
 taskkill /f /im explorer.exe
 start explorer.exe
