@@ -741,3 +741,4 @@ schtasks /Delete /F /TN "\Microsoft\Windows\PerfTrack\BackgroundConfigSurveyor" 
 TIMEOUT /T 5
 taskkill /f /im explorer.exe
 start explorer.exe
+msg %username% Otimizacao Finalizada com Sucesso
