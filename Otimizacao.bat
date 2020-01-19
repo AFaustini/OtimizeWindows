@@ -400,9 +400,6 @@ netsh interface isatap set state disable
 REG ADD "HKLM\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters" /v "EnableICSIPv6" /t REG_DWORD /d 0 /f
 REG ADD "HKLM\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters" /v "DisabledComponents" /t REG_DWORD /d 255 /f
 
-REM *** Tweaks para SSD ***
-fsutil behavior set disablelastaccess 1
-
 REM *** Mostrar todos os icones na area de notificação ***
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F
 
