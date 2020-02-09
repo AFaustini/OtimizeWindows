@@ -43,6 +43,7 @@ sc stop CDPSvc
 sc stop ShellHWDetection
 sc stop RstMwService
 sc stop DusmSvc
+sc stop BthAvctpSvc
 
 sc config DiagTrack start= disabled
 sc config diagnosticshub.standardcollector.service start= disabled
@@ -88,6 +89,7 @@ sc config CDPSvc start= disabled
 sc config ShellHWDetection start= disabled
 sc config RstMwService start= disabled
 sc config DusmSvc start= disabled
+sc config BthAvctpSvc start= disabled
 
 
 REM *** Tweaks de tarefas agendadas ***
@@ -470,6 +472,9 @@ REM *** Dark Mode Janelas Win32 ***
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColor /t REG_DWORD /d 171717 /f
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColorInactive /t REG_DWORD /d 444444 /f
+
+REM *** Desabilitar iniciar apps após reiniciar ***
+Reg Add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v RestartApps /t REG_DWORD /d 0 /f
 
 REM *** Remover Features Não Usadas ***
 DISM.exe /Online /norestart /Disable-Feature /featurename:SimpleTCP /Remove
