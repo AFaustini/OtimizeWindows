@@ -788,7 +788,9 @@ schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\Microsoft Com
 schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater" >nul 2>&1
 schtasks /Delete /F /TN "\Microsoft\Windows\Application Experience\AitAgent" >nul 2>&1
 schtasks /Delete /F /TN "\Microsoft\Windows\PerfTrack\BackgroundConfigSurveyor" >nul 2>&1
+
 rem anti-telemetria 3
+
 for /f "tokens=6 delims=[]. " %%# in ('ver') do set winbuild=%%#
 if %winbuild% gtr 7601 goto :proceed
 
@@ -866,6 +868,9 @@ schtasks /Change /DISABLE /TN "Microsoft\Windows\Application Experience\AitAgent
 schtasks /Change /DISABLE /TN "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser"
 schtasks /Change /DISABLE /TN "Microsoft\Windows\Application Experience\ProgramDataUpdater"
 schtasks /Change /DISABLE /TN "Microsoft\Windows\PerfTrack\BackgroundConfigSurveyor"
+schtasks /Change /DISABLE /TN "Microsoft\Office\Office ClickToRun Service Monitor"
+schtasks /Change /DISABLE /TN "Microsoft\Office\OfficeTelemetryAgentLogOn2016"
+schtasks /Change /DISABLE /TN "Microsoft\Office\OfficeTelemetryAgentFallBack2016"
 schtasks /Delete /F /TN "Microsoft\Windows\SetupSQMTask"
 schtasks /Delete /F /TN "Microsoft\Windows\Customer Experience Improvement Program\BthSQM"
 schtasks /Delete /F /TN "Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
