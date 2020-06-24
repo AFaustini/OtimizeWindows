@@ -644,7 +644,7 @@ REM *** Desabilitar Assistência Remota ***
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowToGetHelp /d 0 /t REG_DWORD /f
 
 REM *** Habiltar agendamento de aceleração de GPU ***
-REM REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /v HwSchMode /d 2 /t REG_DWORD /f
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /v HwSchMode /d 2 /t REG_DWORD /f
 
 REM ***Instalar Clientes de Jogos ***
 REM choco install epicgameslauncher -y
