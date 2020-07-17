@@ -44,6 +44,8 @@ sc stop ShellHWDetection
 sc stop RstMwService
 sc stop DusmSvc
 sc stop BthAvctpSvc
+sc stop BITS
+sc stop DPS
 
 sc config DiagTrack start= disabled
 sc config diagnosticshub.standardcollector.service start= disabled
@@ -90,6 +92,8 @@ sc config ShellHWDetection start= disabled
 sc config RstMwService start= disabled
 sc config DusmSvc start= disabled
 sc config BthAvctpSvc start= disabled
+sc config BITS start= demand
+sc config DPS start= disabled
 
 
 REM *** Tweaks de tarefas agendadas ***
