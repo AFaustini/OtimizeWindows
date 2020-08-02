@@ -476,6 +476,13 @@ Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColorInactive /t REG_DWOR
 REM *** Desabilitar iniciar apps após reiniciar ***
 Reg Add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v RestartApps /t REG_DWORD /d 0 /f
 
+REM *** Tiles transparentes no Iniciar ***
+Reg Add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\0\2093230218" /v EnabledState /t REG_DWORD /d 2 /f
+Reg Add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\0\2093230218" /v EnabledStateOptions /t REG_DWORD /d 0 /f
+
+REM *** Inserir 5 abas mais recentes do Edge no Alt-Tab ***
+Reg Add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v EnabledState /t REG_DWORD /d 1 /f
+
 REM *** Remover Features Não Usadas ***
 DISM.exe /Online /norestart /Disable-Feature /featurename:SimpleTCP /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:SNMP /Remove
