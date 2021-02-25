@@ -110,24 +110,24 @@ schtasks /Change /TN "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDia
 schtasks /Change /TN "Microsoft\Windows\Maintenance\WinSAT" /Disable
 schtasks /Change /TN "Microsoft\Windows\Shell\FamilySafetyUpload" /Disable
 schtasks /Change /TN "Microsoft\Windows\SystemRestore\SR" /Disable
-schtasks /Change /TN "Microsoft\Office\OfficeTelemetryAgentLogOn" /Disable
-schtasks /Change /TN "Microsoft\Office\OfficeTelemetryAgentFallBack" /Disable
-schtasks /Change /TN "Microsoft\Office\Office 15 Subscription Heartbeat" /Disable
+schtasks /Change /TN "Microsoft\Office\Office Automatic Updates 2.0" /Disable
+schtasks /Change /TN "Microsoft\Office\Office ClickToRun Service Monitor" /Disable
+schtasks /Change /TN "Microsoft\Office\Office Feature Updates" /Disable
+schtasks /Change /TN "Microsoft\Office\Office Feature Updates Logon" /Disable
 schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /Disable
-
-REM schtasks /Change /TN "Microsoft\Windows\Autochk\Proxy" /Disable
+schtasks /Change /TN "MicrosoftEdgeUpdateTaskMachineCore" /Disable
+schtasks /Change /TN "MicrosoftEdgeUpdateTaskMachineUA" /Disable
+schtasks /Change /TN "Microsoft\Windows\Autochk\Proxy" /Disable
+schtasks /Change /TN "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /Disable
+schtasks /Change /TN "Microsoft\Windows\FileHistory\File History (maintenance mode)" /Disable
+schtasks /Change /TN "Microsoft\Windows\Maintenance\WinSAT" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /Disable
-REM schtasks /Change /TN "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\DiskFootprint\Diagnostics" /Disable *** Not sure if should be disabled, maybe related to S.M.A.R.T.
-REM schtasks /Change /TN "Microsoft\Windows\FileHistory\File History (maintenance mode)" /Disable
-REM schtasks /Change /TN "Microsoft\Windows\Maintenance\WinSAT" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\NetTrace\GatherNetworkInfo" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\PI\Sqm-Tasks" /Disable
-REM The stubborn task Microsoft\Windows\SettingSync\BackgroundUploadTask can be Disabled using a simple bit change. I use a REG file for that (attached to this post).
 REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\ForceSynchronizeTime" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
-REM schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\Automatic App Update" /Disable
 
 @rem *** Remover Telemetria e Coleta de Dados ***
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
@@ -588,7 +588,7 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:FaxServicesClientPacka
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
 
 REM Remover Apps da Store
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | Remove-AppxPackage"
+rem Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | Remove-AppxPackage"
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "FeatureManagementEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "OemPreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
