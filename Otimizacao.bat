@@ -651,6 +651,10 @@ REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVer
 REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\HomeFolderDesktop\NameSpace\DelegateFolders\{3134ef9c-6b18-4996-ad04-ed5912e00eb5}" /f
 REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\HomeFolderDesktop\NameSpace\DelegateFolders\{3134ef9c-6b18-4996-ad04-ed5912e00eb5}" /f
 
+REM *** Desabilitar escrita de Cache do Edge ***
+taskkill /f /im msedge.exe
+icacls "%systemdrive%%homepath%\AppData\Local\Microsoft\Edge\User Data\Default\cache" /inheritance:r
+
 REM ***Instalar Clientes de Jogos ***
 REM choco install epicgameslauncher -y
 REM cinst goggalaxy -y
