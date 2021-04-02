@@ -651,9 +651,30 @@ REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVer
 REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\HomeFolderDesktop\NameSpace\DelegateFolders\{3134ef9c-6b18-4996-ad04-ed5912e00eb5}" /f
 REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\HomeFolderDesktop\NameSpace\DelegateFolders\{3134ef9c-6b18-4996-ad04-ed5912e00eb5}" /f
 
-REM *** Desabilitar escrita de Cache do Edge ***
+REM *** Desabilitar escrita de Cache de navegadores ***
 taskkill /f /im msedge.exe
-icacls "%systemdrive%%homepath%\AppData\Local\Microsoft\Edge\User Data\Default\cache" /inheritance:r
+REM Vivaldi
+del /s /q "%userprofile%\AppData\Local\Vivaldi\User Data\Default\Cache"
+icacls "%userprofile%\AppData\Local\Vivaldi\User Data\Default\Cache" /deny *S-1-1-0:(F)
+REM Google Chrome
+del /s /q "%userprofile%\AppData\Local\Google\Chrome\User Data\Default\Cache"
+icacls "%userprofile%\AppData\Local\Google\Chrome\User Data\Default\Cache" /deny *S-1-1-0:(F)
+REM Opera
+del /s /q "%userprofile%\AppData\Local\Opera Software\Opera Stable\Cache"
+icacls "%userprofile%\AppData\Local\Opera Software\Opera Stable\Cache" /deny *S-1-1-0:(F)
+REM Microsoft Edge
+del /s /q "%userprofile%\AppData\Local\Microsoft\Edge\User Data\Default\Cache"
+icacls "%userprofile%\AppData\Local\Microsoft\Edge\User Data\Default\Cache" /deny *S-1-1-0:(F)
+REM Mozilla Firefox
+cd "%userprofile%\AppData\Local\Mozilla\Firefox\Profiles\*default-release
+del /s /q cache2
+icacls cache2 /deny *S-1-1-0:(F)
+REM Vivaldi Portable
+del /s /q "D:Programas\Vivaldi\User Data\Default\Cache"
+icacls "D:Programas\Vivaldi\User Data\Default\Cache" /deny *S-1-1-0:(F)
+REM Opera Portable
+del /s /q "D:\Programas\Opera\profile\data\Cache"
+icacls "D:\Programas\Opera\profile\data\Cache" /deny *S-1-1-0:(F)
 
 REM ***Instalar Clientes de Jogos ***
 REM choco install epicgameslauncher -y
