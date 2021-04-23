@@ -651,7 +651,7 @@ REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVer
 REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\HomeFolderDesktop\NameSpace\DelegateFolders\{3134ef9c-6b18-4996-ad04-ed5912e00eb5}" /f
 REG delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\HomeFolderDesktop\NameSpace\DelegateFolders\{3134ef9c-6b18-4996-ad04-ed5912e00eb5}" /f
 
-REM *** Desabilitar escrita de Cache de navegadores ***
+REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
 REM Vivaldi
 del /s /q "%userprofile%\AppData\Local\Vivaldi\User Data\Default\Cache"
@@ -675,6 +675,12 @@ icacls "D:Programas\Vivaldi\User Data\Default\Cache" /deny *S-1-1-0:(F)
 REM Opera Portable
 del /s /q "D:\Programas\Opera\profile\data\Cache"
 icacls "D:\Programas\Opera\profile\data\Cache" /deny *S-1-1-0:(F)
+REM Tidal
+del /s /q "%userprofile%\AppData\Roaming\TIDAL\Cache"
+icacls "%userprofile%\AppData\Roaming\TIDAL\Cache" /deny *S-1-1-0:(F)
+REM Spotify
+del /s /q "%LocalAppData%\Spotify\Storage"
+icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 
 REM ***Instalar Clientes de Jogos ***
 REM choco install epicgameslauncher -y
