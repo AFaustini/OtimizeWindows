@@ -609,6 +609,9 @@ REM ***Instalar Chocolatey***
 REM Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 REM call %programdata%\chocolatey\bin\RefreshEnv.cmd
 
+REM ***Instalar Winget***
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.11451/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle"
+
 REM *** Desabilitar reserva de armazenamento ***
 Reg Add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager" /v ShippedWithReserves /t REG_DWORD /d 0 /f
 Reg Add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager" /v PassedPolicy /t REG_DWORD /d 0 /f
@@ -683,20 +686,21 @@ del /s /q "%LocalAppData%\Spotify\Storage"
 icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 
 REM ***Instalar Clientes de Jogos ***
-REM choco install epicgameslauncher -y
-REM cinst goggalaxy -y
+REM winget install EpicGames.EpicGamesLauncher -h
+REM winget install GOG.Galaxy -h
 REM cinst origin -y
-REM cinst steam -y
-REM cinst uplay -y
+REM winget install Valve.Steam -h
+REM winget install Ubisoft.Connect -h
+REM winget install Playnite.Playnite -h
 
 REM ***Instalar Emuladores***
 REM cinst cemu -y
-REM cinst dolphin -y
+REM winget install DolphinEmu.DolphinEmu -h
 REM cinst fs-uae -y
 REM cinst mame -y
 REM cinst nestopia -y
 REM cinst ppsspp -y
-REM cinst retroarch -y
+REM winget install Libretro.RetroArch -h
 REM cinst snes9x -y
 REM cinst visualboyadvance -y
 REM cinst winvice -y
@@ -709,74 +713,72 @@ REM cinst nvidia-display-driver -y
 REM cinst realtek-hd-audio-driver -y
 
 REM ***Instalar Navegadores e Programas para Internet***
-REM cinst chromium -y
-REM cinst dropbox -y
+REM winget install eloston.ungoogled-chromium -h
+REM winget install Dropbox.Dropbox -h
 REM cinst falkon -y
-REM cinst firefox -y
-REM cinst opera -y
-REM cinst picotorrent.install -y
+REM winget install Mozilla.Firefox -h
+REM winget install Opera.Opera -h
+REM winget install PicoTorrent.PicoTorrent -h
 REM cinst picotorrent.portable -y
-REM cinst vivaldi -y
+REM winget install VivaldiTechnologies.Vivaldi -h
 
 REM ***Instalar Aplicativos***
-REM cinst calibre -y
-REM cinst foobar2000 -y
-REM cinst irfanview -y
+REM winget install calibre.calibre -h
+REM winget install PeterPawlowski.foobar2000 -h
+REM winget install IrfanSkiljan.IrfanView -h
 REM cinst kis -y
 REM cinst kodi -y
 REM cinst launchyqt -y
-REM cinst libreoffice-fresh -y
-REM cinst mactype -y
+REM winget install LibreOffice.LibreOffice -h
+REM winget install MacType.MacType -h
 REM cinst memreduct -y
-REM cinst mkvtoolnix -y
+REM winget install MKVToolNix.MKVToolNix -h
 REM cinst mkvtoolnix.portable -y
-REM cinst mpc-hc-clsid2  -y
+REM winget install clsid2.mpc-hc -h
 REM cinst mpc-be -y
 REM cinst msiafterburner -y
 REM cinst multicommander -y
-REM cinst notepadplusplus.install -y
+REM winget install Notepad++.Notepad++ -h
 REM cinst notepadplusplus.commandline -y
-REM cinst office365proplus -y
+REM winget install Microsoft.Office -h
 REM cinst oldcalc -y
 REM cinst openal -y
 REM cinst paint.net -y
-REM cinst playnite -y
-REM cinst quicklook -y
-REM cinst quiterss -y
-REM cinst rocketdock -y
-REM cinst speccy -y
-REM cinst sumatrapdf.install  -y
+REM winget install QL-Win.QuickLook -h
+REM winget install QuiteRSS.QuiteRSS -h
+REM winget install PunkLabs.RocketDock -h
+REM winget install Piriform.Speccy -h
+REM winget install SumatraPDF.SumatraPDF -h
 REM cinst sumatrapdf.commandline -y
 REM cinst vidcoder -y
-REM cinst vlc -y
+REM winget install VideoLAN.VLC -h
 REM cinst windowblinds -y
-REM cinst winfile -y
+REM winget install Microsoft.winfile -h
 REM cinst winyl-player =y
 REM cinst xplorer2 -y
 
 REM ***Instalar Utilitários***
-REM cinst 7zip.install -y
+REM winget install 7zip.7zip -h
 REM cinst 7zip.portable -y
-REM cinst bleachbit -y
-REM cinst ccleaner -y
-REM cinst ccleaner.portable -y
+REM winget install BleachBit.BleachBit -h
+REM winget install Piriform.CCleaner -h
 REM cinst compactgui -y
-REM cinst cpu-z.install -y
+REM winget install CPUID.CPU-Z -h
 REM cinst cpu-z.portable -y
-REM cinst defraggler -y
+REM winget install Piriform.Defraggler -h
 REM cinst directx -y
 REM cinst eset.nod32 -y
-REM cinst f.lux.install  -y
+REM winget install flux.flux -h
 REM cinst f.lux.portable -y
-REM cinst gpu-z -y
-REM cinst hwinfo.install  -y
+REM winget install TechPowerUp.GPU-Z -h
+REM winget install REALiX.HWiNFO -h
 REM cinst hwinfo.portable -y
 REM cinst rainmeter -y
-REM cinst recuva -y
+REM winget install Piriform.Recuva -h
 REM cinst recuva.portable -y
 REM cinst regscanner -y
 REM cinst renamer -y
-REM cinst wiztree -y
+REM winget install AntibodySoftware.WizTree -h
 
 REM ***Desabilitar telemetria 2.0***
 @echo off
