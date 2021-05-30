@@ -727,7 +727,7 @@ REM winget install calibre.calibre -h
 REM winget install PeterPawlowski.foobar2000 -h
 REM winget install IrfanSkiljan.IrfanView -h
 REM cinst kis -y
-REM cinst kodi -y
+REM winget install XBMCFoundation.Kodi -h
 REM cinst launchyqt -y
 REM winget install LibreOffice.LibreOffice -h
 REM winget install MacType.MacType -h
@@ -759,6 +759,7 @@ REM cinst xplorer2 -y
 
 REM ***Instalar Utilitários***
 REM winget install 7zip.7zip -h
+REM winget install 7zip.7zipAlpha -h
 REM cinst 7zip.portable -y
 REM winget install BleachBit.BleachBit -h
 REM winget install Piriform.CCleaner -h
@@ -773,6 +774,7 @@ REM cinst f.lux.portable -y
 REM winget install TechPowerUp.GPU-Z -h
 REM winget install REALiX.HWiNFO -h
 REM cinst hwinfo.portable -y
+REM winget install Microsoft.PowerToys -h
 REM cinst rainmeter -y
 REM winget install Piriform.Recuva -h
 REM cinst recuva.portable -y
