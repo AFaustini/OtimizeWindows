@@ -721,6 +721,7 @@ REM winget install Opera.Opera -h
 REM winget install PicoTorrent.PicoTorrent -h
 REM cinst picotorrent.portable -y
 REM winget install VivaldiTechnologies.Vivaldi -h
+REM winget install Microsoft.OneDrive -h
 
 REM ***Instalar Aplicativos***
 REM winget install calibre.calibre -h
@@ -756,6 +757,8 @@ REM cinst windowblinds -y
 REM winget install Microsoft.winfile -h
 REM cinst winyl-player =y
 REM cinst xplorer2 -y
+REM winget install ModernFlyouts.ModernFlyouts -h
+REM winget install Files-Community.Files -h
 
 REM ***Instalar Utilitários***
 REM winget install 7zip.7zip -h
@@ -781,6 +784,7 @@ REM cinst recuva.portable -y
 REM cinst regscanner -y
 REM cinst renamer -y
 REM winget install AntibodySoftware.WizTree -h
+REM winget install Microsoft.WindowsTerminal -h
 
 REM ***Desabilitar telemetria 2.0***
 @echo off
