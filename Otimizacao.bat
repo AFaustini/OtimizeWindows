@@ -759,6 +759,8 @@ REM cinst winyl-player =y
 REM cinst xplorer2 -y
 REM winget install ModernFlyouts.ModernFlyouts -h
 REM winget install Files-Community.Files -h
+REM winget install Open-Shell.Open-Shell-Menu -h
+REM winget install t1m0thyj.WinDynamicDesktop -h
 
 REM ***Instalar Utilitários***
 REM winget install 7zip.7zip -h
@@ -785,6 +787,7 @@ REM cinst regscanner -y
 REM cinst renamer -y
 REM winget install AntibodySoftware.WizTree -h
 REM winget install Microsoft.WindowsTerminal -h
+REM winget install Lexikos.AutoHotkey -h
 
 REM ***Desabilitar telemetria 2.0***
 @echo off
