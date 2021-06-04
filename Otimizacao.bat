@@ -688,7 +688,7 @@ icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -h
 REM winget install GOG.Galaxy -h
-REM cinst origin -y
+REM winget install ElectronicArts.EADesktop -h
 REM winget install Valve.Steam -h
 REM winget install Ubisoft.Connect -h
 REM winget install Playnite.Playnite -h
@@ -699,7 +699,7 @@ REM winget install DolphinEmu.DolphinEmu -h
 REM cinst fs-uae -y
 REM cinst mame -y
 REM cinst nestopia -y
-REM cinst ppsspp -y
+REM winget install PPSSPPTeam.PPSSPP -h
 REM winget install Libretro.RetroArch -h
 REM cinst snes9x -y
 REM cinst visualboyadvance -y
@@ -711,6 +711,7 @@ REM cinst intel-graphics-driver -y
 REM cinst intel-rst-driver -y
 REM cinst nvidia-display-driver -y
 REM cinst realtek-hd-audio-driver -y
+REM winget install AMD.RyzenMaster -h
 
 REM ***Instalar Navegadores e Programas para Internet***
 REM winget install eloston.ungoogled-chromium -h
@@ -719,9 +720,9 @@ REM cinst falkon -y
 REM winget install Mozilla.Firefox -h
 REM winget install Opera.Opera -h
 REM winget install PicoTorrent.PicoTorrent -h
-REM cinst picotorrent.portable -y
 REM winget install VivaldiTechnologies.Vivaldi -h
 REM winget install Microsoft.OneDrive -h
+REM winget install TIDALMusicAS.TIDAL -h
 
 REM ***Instalar Aplicativos***
 REM winget install calibre.calibre -h
@@ -729,18 +730,16 @@ REM winget install PeterPawlowski.foobar2000 -h
 REM winget install IrfanSkiljan.IrfanView -h
 REM cinst kis -y
 REM winget install XBMCFoundation.Kodi -h
+REM winget install CodeJelly.Launchy -h
 REM cinst launchyqt -y
 REM winget install LibreOffice.LibreOffice -h
 REM winget install MacType.MacType -h
 REM cinst memreduct -y
 REM winget install MKVToolNix.MKVToolNix -h
-REM cinst mkvtoolnix.portable -y
 REM winget install clsid2.mpc-hc -h
 REM cinst mpc-be -y
 REM cinst msiafterburner -y
-REM cinst multicommander -y
 REM winget install Notepad++.Notepad++ -h
-REM cinst notepadplusplus.commandline -y
 REM winget install Microsoft.Office -h
 REM cinst oldcalc -y
 REM cinst openal -y
@@ -750,12 +749,10 @@ REM winget install QuiteRSS.QuiteRSS -h
 REM winget install PunkLabs.RocketDock -h
 REM winget install Piriform.Speccy -h
 REM winget install SumatraPDF.SumatraPDF -h
-REM cinst sumatrapdf.commandline -y
-REM cinst vidcoder -y
+REM winget install RandomEngy.VidCoder -h
 REM winget install VideoLAN.VLC -h
 REM cinst windowblinds -y
 REM winget install Microsoft.winfile -h
-REM cinst winyl-player =y
 REM cinst xplorer2 -y
 REM winget install ModernFlyouts.ModernFlyouts -h
 REM winget install Files-Community.Files -h
@@ -765,24 +762,19 @@ REM winget install t1m0thyj.WinDynamicDesktop -h
 REM ***Instalar Utilitários***
 REM winget install 7zip.7zip -h
 REM winget install 7zip.7zipAlpha -h
-REM cinst 7zip.portable -y
 REM winget install BleachBit.BleachBit -h
 REM winget install Piriform.CCleaner -h
 REM cinst compactgui -y
 REM winget install CPUID.CPU-Z -h
-REM cinst cpu-z.portable -y
 REM winget install Piriform.Defraggler -h
 REM cinst directx -y
 REM cinst eset.nod32 -y
 REM winget install flux.flux -h
-REM cinst f.lux.portable -y
 REM winget install TechPowerUp.GPU-Z -h
 REM winget install REALiX.HWiNFO -h
-REM cinst hwinfo.portable -y
 REM winget install Microsoft.PowerToys -h
 REM cinst rainmeter -y
 REM winget install Piriform.Recuva -h
-REM cinst recuva.portable -y
 REM cinst regscanner -y
 REM cinst renamer -y
 REM winget install AntibodySoftware.WizTree -h
