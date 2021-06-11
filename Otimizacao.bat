@@ -716,7 +716,7 @@ REM winget install AMD.RyzenMaster -h
 REM ***Instalar Navegadores e Programas para Internet***
 REM winget install eloston.ungoogled-chromium -h
 REM winget install Dropbox.Dropbox -h
-REM cinst falkon -y
+REM winget install KDE.Falkon -h
 REM winget install Mozilla.Firefox -h
 REM winget install Opera.Opera -h
 REM winget install PicoTorrent.PicoTorrent -h
