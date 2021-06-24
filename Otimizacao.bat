@@ -576,7 +576,7 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:FaxServicesClientPacka
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
 
 REM Remover Apps da Store
-rem Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | Remove-AppxPackage"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | Remove-AppxPackage"
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "FeatureManagementEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "OemPreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
@@ -610,7 +610,7 @@ REM Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "ie
 REM call %programdata%\chocolatey\bin\RefreshEnv.cmd
 
 REM ***Instalar Winget***
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.11451/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.11692/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
 
 REM *** Desabilitar reserva de armazenamento ***
 Reg Add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager" /v ShippedWithReserves /t REG_DWORD /d 0 /f
@@ -692,6 +692,11 @@ REM winget install ElectronicArts.EADesktop -h
 REM winget install Valve.Steam -h
 REM winget install Ubisoft.Connect -h
 REM winget install Playnite.Playnite -h
+
+REM ***Instalar Frameworks ***
+
+REM winget install Microsoft.dotnetRuntime.3-x64 -h
+REM winget install Microsoft.dotnetRuntime.5-x64 -h
 
 REM ***Instalar Emuladores***
 REM cinst cemu -y
