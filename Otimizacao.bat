@@ -686,6 +686,7 @@ del /s /q "%LocalAppData%\Spotify\Storage"
 icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 
 REM ***Instalar Clientes de Jogos ***
+
 REM winget install EpicGames.EpicGamesLauncher -h
 REM winget install GOG.Galaxy -h
 REM winget install ElectronicArts.EADesktop -h
@@ -695,8 +696,8 @@ REM winget install Playnite.Playnite -h
 
 REM ***Instalar Frameworks ***
 
-REM winget install Microsoft.dotnetRuntime.3-x64 -h
-REM winget install Microsoft.dotnetRuntime.5-x64 -h
+winget install Microsoft.dotnetRuntime.3-x64 -h
+winget install Microsoft.dotnetRuntime.5-x64 -h
 
 REM ***Instalar Emuladores***
 REM cinst cemu -y
