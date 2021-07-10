@@ -224,6 +224,9 @@ winget uninstall Microsoft.ZuneMusic_8wekyb3d8bbwe -h
 winget uninstall Microsoft.ZuneVideo_8wekyb3d8bbwe -h
 winget uninstall microsoft.windowscommunicationsapps_8wekyb3d8bbwe -h
 
+REM *** Habilitar Printscreen para Snipping Tool ***
+
+REG ADD "HKEY_CURRENT_USER\Control Panel\Keyboard" /v PrintScreenKeyForSnippingEnabled /d 1 /t REG_DWORD /f
 
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
