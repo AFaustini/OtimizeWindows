@@ -12,17 +12,12 @@ sc stop RemoteAccess
 sc stop WSearch
 sc stop iphlpsvc
 sc stop DoSvc
-sc stop ICEsoundService
-sc stop ClickToRunSvc
 sc stop SEMgrSvc
-sc stop RtkAudioUniversalService
 sc stop BDESVC
 sc stop SstpSvc
-sc stop NvTelemetryContainer
 sc stop HomeGroupListener
 sc stop HomeGroupProvider
 sc stop lfsvc
-sc stop MapsBroke
 sc stop NetTcpPortSharing
 sc stop SharedAccess
 sc stop WbioSrvc
@@ -40,7 +35,6 @@ sc stop BTAGService
 sc stop AJRouter
 sc stop CDPSvc
 sc stop ShellHWDetection
-sc stop RstMwService
 sc stop DusmSvc
 sc stop BthAvctpSvc
 sc stop BITS
@@ -59,17 +53,12 @@ sc config RemoteAccess start= disabled
 sc config WSearch start= disabled
 sc config iphlpsvc start= disabled
 sc config DoSvc start= disabled
-sc config ICEsoundService start= disabled
-sc config ClickToRunSvc start= demand
 sc config SEMgrSvc start= disabled
-sc config RtkAudioUniversalService start= disabled
 sc config BDESVC start= disabled
 sc config SstpSvc start= disabled
-sc config NvTelemetryContainer start= disabled
 sc config HomeGroupListener start= disabled
 sc config HomeGroupProvider start= disabled
 sc config lfsvc start= disabled
-sc config MapsBroke start= disabled
 sc config NetTcpPortSharing start= disabled
 sc config SharedAccess start= disabled
 sc config WbioSrvc start= disabled
@@ -87,13 +76,12 @@ sc config BTAGService start= disabled
 sc config AJRouter start= disabled
 sc config CDPSvc start= disabled
 sc config ShellHWDetection start= disabled
-sc config RstMwService start= disabled
 sc config DusmSvc start= disabled
 sc config BthAvctpSvc start= disabled
 sc config BITS start= demand
 sc config DPS start= disabled
 
-REM *** Desabilitar hibernação ***
+REM *** Desabilitar hibernacao ***
 powercfg -h off 
 
 REM *** Instalar .NET Framework 3.5 ***
@@ -101,8 +89,6 @@ Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
 
 REM *** Remover Features Não Usadas ***
 DISM.exe /Online /norestart /Disable-Feature /featurename:SimpleTCP /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:SNMP /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:WMISnmpProvider /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Windows-Identity-Foundation /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:DirectoryServices-ADAM-Client /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:IIS-WebServerRole /Remove
@@ -179,13 +165,9 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-NonHTTP-Activation
 DISM.exe /Online /norestart /Disable-Feature /featurename:NetFx4Extended-ASPNET45 /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:MediaPlayback /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:WindowsMediaPlayer /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Windows-MobilePC-Client-Premium-Package-net /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-XPSServices-Features /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:RasCMAK /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:RasRip /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:MSRDC-Infrastructure /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:TelnetClient /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:TelnetServer /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:TFTP /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:TIFFIFilter /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:WorkFolders-Client /Remove
@@ -198,10 +180,12 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:Microsoft-Hyper-V-Mana
 DISM.exe /Online /norestart /Disable-Feature /featurename:SearchEngine-Client-Package /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-TCP-PortSharing45 /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:SmbDirect /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:Internet-Explorer-Optional-amd64 /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-Features /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:FaxServicesClientPackage /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
+
+REM *** Instalar Winget ***
+
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.11692/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
 
 REM *** Desinstalar apps padrão ***
 
@@ -216,13 +200,14 @@ winget uninstall Microsoft.People_8wekyb3d8bbwe -h
 winget uninstall Microsoft.Windows.Photos_8wekyb3d8bbwe -h
 winget uninstall Microsoft.WindowsAlarms_8wekyb3d8bbwe -h
 winget uninstall Microsoft.WindowsCamera_8wekyb3d8bbwe -h
-winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
 winget uninstall Microsoft.WindowsMaps_8wekyb3d8bbwe -h
 winget uninstall Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe -h
 winget uninstall Microsoft.YourPhone_8wekyb3d8bbwe -h
 winget uninstall Microsoft.ZuneMusic_8wekyb3d8bbwe -h
 winget uninstall Microsoft.ZuneVideo_8wekyb3d8bbwe -h
 winget uninstall microsoft.windowscommunicationsapps_8wekyb3d8bbwe -h
+winget uninstall Microsoft.Paint_8wekyb3d8bbwe -h
+winget uninstall Microsoft.549981C3F5F10_8wekyb3d8bbwe -h
 
 REM *** Habilitar Printscreen para Snipping Tool ***
 
@@ -262,7 +247,7 @@ del /s /q "%userprofile%\AppData\Roaming\TIDAL\Cache"
 icacls "%userprofile%\AppData\Roaming\TIDAL\Cache" /deny *S-1-1-0:(F)
 REM Spotify
 del /s /q "%LocalAppData%\Spotify\Storage"
-icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
+icacls "%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -h
@@ -274,8 +259,8 @@ REM winget install Playnite.Playnite -h
 
 REM ***Instalar Frameworks ***
 
-REM winget install Microsoft.dotnetRuntime.3-x64 -h
-REM winget install Microsoft.dotnetRuntime.5-x64 -h
+winget install Microsoft.dotnetRuntime.3-x64 -h
+winget install Microsoft.dotnetRuntime.5-x64 -h
 
 REM ***Instalar Emuladores***
 REM cinst cemu -y
