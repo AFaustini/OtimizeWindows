@@ -233,7 +233,7 @@ REM Microsoft Edge
 del /s /q "%userprofile%\AppData\Local\Microsoft\Edge\User Data\Default\Cache"
 icacls "%userprofile%\AppData\Local\Microsoft\Edge\User Data\Default\Cache" /deny *S-1-1-0:(F)
 REM Mozilla Firefox
-cd "%userprofile%\AppData\Local\Mozilla\Firefox\Profiles\*default-release
+cd "%userprofile%\AppData\Local\Mozilla\Firefox\Profiles\*default-release"
 del /s /q cache2
 icacls cache2 /deny *S-1-1-0:(F)
 REM Vivaldi Portable
