@@ -208,6 +208,11 @@ winget uninstall Microsoft.ZuneVideo_8wekyb3d8bbwe -h
 winget uninstall microsoft.windowscommunicationsapps_8wekyb3d8bbwe -h
 winget uninstall Microsoft.Paint_8wekyb3d8bbwe -h
 winget uninstall Microsoft.549981C3F5F10_8wekyb3d8bbwe -h
+rem winget uninstall Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe -h
+rem winget uninstall Microsoft.ScreenSketch_8wekyb3d8bbwe -h
+rem winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
+rem winget uninstall MicrosoftTeams_8wekyb3d8bbwe -h
+rem winget uninstall Microsoft.OneDrive -h
 
 REM *** Habilitar Printscreen para Snipping Tool ***
 
@@ -216,7 +221,11 @@ REG ADD "HKEY_CURRENT_USER\Control Panel\Keyboard" /v PrintScreenKeyForSnippingE
 REM *** Habilitar Dark Mode ***
 
 REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v AppsUseLightTheme /d 0 /t REG_DWORD /f
-REG ADD "HHKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v SystemUsesLightTheme /d 0 /t REG_DWORD /f
+REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v SystemUsesLightTheme /d 0 /t REG_DWORD /f
+
+REM *** Configurar Windows Explorer para iniciar no Este Computador, ao invés de Acesso Rápido ***
+
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v LaunchTo /d 1 /t REG_DWORD /f
 
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
@@ -256,6 +265,7 @@ REM winget install ElectronicArts.EADesktop -h
 REM winget install Valve.Steam -h
 REM winget install Ubisoft.Connect -h
 REM winget install Playnite.Playnite -h
+REM winget install Twitch.Twitch -h
 
 REM ***Instalar Frameworks ***
 
