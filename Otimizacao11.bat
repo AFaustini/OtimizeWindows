@@ -237,6 +237,13 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /v
 REM *** Habiltar modo compacto no Explorador de Arquivos ***
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v UseCompactMode /d 1 /t REG_DWORD /f
 
+REM *** Desabilitar Apps em Segundo Plano ***
+
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v "LetAppsRunInBackground" /t REG_DWORD /d 2 /f
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v "LetAppsRunInBackground_UserInControlOfTheseApps" /f
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v "LetAppsRunInBackground_ForceAllowTheseApp" /f
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore" /v "LetAppsRunInBackground_ForceDenyTheseApp" /f
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
 REM Vivaldi
@@ -274,8 +281,8 @@ REM winget install GOG.Galaxy -h
 REM winget install ElectronicArts.EADesktop -h
 REM winget install Valve.Steam -h
 REM winget install Ubisoft.Connect -h
-REM winget install Playnite.Playnite -h
 REM winget install Twitch.Twitch -h
+REM winget install Playnite.Playnite -h
 
 REM ***Instalar Frameworks ***
 
@@ -323,7 +330,7 @@ REM winget install CodeJelly.Launchy -h
 REM cinst launchyqt -y
 REM winget install LibreOffice.LibreOffice -h
 REM winget install MacType.MacType -h
-REM cinst memreduct -y
+REM winget install Henry++.MemReduct -h
 REM winget install MKVToolNix.MKVToolNix -h
 REM winget install clsid2.mpc-hc -h
 REM cinst mpc-be -y
@@ -362,7 +369,7 @@ REM winget install flux.flux -h
 REM winget install TechPowerUp.GPU-Z -h
 REM winget install REALiX.HWiNFO -h
 REM winget install Microsoft.PowerToys -h
-REM cinst rainmeter -y
+REM winget install Rainmeter.Rainmeter -h
 REM winget install Piriform.Recuva -h
 REM cinst regscanner -y
 REM cinst renamer -y
