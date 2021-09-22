@@ -352,6 +352,9 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 REM *** Mostrar arquivos super ocultos no Explorer ***
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t REG_DWORD /d 1 /f
 
+REM *** Desabilitar Armazenamento Reservado ***
+DISM /Online /Set-ReservedStorageState /State:Disabled
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
 REM Vivaldi
