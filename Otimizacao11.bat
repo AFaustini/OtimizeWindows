@@ -237,10 +237,10 @@ winget uninstall Microsoft.ZuneVideo_8wekyb3d8bbwe -h
 winget uninstall microsoft.windowscommunicationsapps_8wekyb3d8bbwe -h
 winget uninstall Microsoft.Paint_8wekyb3d8bbwe -h
 winget uninstall Microsoft.549981C3F5F10_8wekyb3d8bbwe -h
+winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
+winget uninstall MicrosoftTeams_8wekyb3d8bbwe -h
 rem winget uninstall Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe -h
 rem winget uninstall Microsoft.ScreenSketch_8wekyb3d8bbwe -h
-rem winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
-rem winget uninstall MicrosoftTeams_8wekyb3d8bbwe -h
 rem winget uninstall Microsoft.OneDrive -h
 
 REM *** Habilitar Printscreen para Snipping Tool ***
@@ -500,7 +500,7 @@ REM winget install Microsoft.PowerToys -h
 REM winget install Rainmeter.Rainmeter -h
 REM winget install Piriform.Recuva -h
 REM cinst regscanner -y
-REM cinst renamer -y
+REM winget install den4b.ReNamer -h
 REM winget install AntibodySoftware.WizTree -h
 REM winget install Microsoft.WindowsTerminal -h
 REM winget install Lexikos.AutoHotkey -h
