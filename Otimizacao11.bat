@@ -273,6 +273,32 @@ REM *** Desabilitar UAC ***
 
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableLUA" /t REG_DWORD /d 0 /f
 
+REM *** Desabilitar hibernação HD/SSD e demais configs de energia***
+ECHO Esquema Balanceado
+REM powercfg -SETACTIVE 381b4222-f694-41f0-9685-ff5bb260df2e
+ECHO Esquema Balanceado Ryzen
+powercfg -SETACTIVE 9897998c-92de-4669-853f-b7cd3ecb2790
+ECHO Marcando configurações na bateria como nunca
+powercfg.exe -change -monitor-timeout-dc 5
+powercfg.exe -change -standby-timeout-dc 15
+powercfg.exe -change -hibernate-timeout-dc 0
+ECHO Marcando configurações na tomada como nunca
+powercfg.exe -change -monitor-timeout-ac 15
+powercfg.exe -change -standby-timeout-ac 0
+powercfg.exe -change -hibernate-timeout-ac 0
+ECHO Não mexer no brilho do monitor
+powercfg -SETDCVALUEINDEX SCHEME_CURRENT 7516b95f-f776-4464-8c53-06167f40cc99 17aaa29b-8b43-4b94-aafe-35f64daaf1ee 0
+powercfg -SETACVALUEINDEX SCHEME_CURRENT 7516b95f-f776-4464-8c53-06167f40cc99 17aaa29b-8b43-4b94-aafe-35f64daaf1ee 0
+ECHO Ao fechar a tampa. Na tomada nada e na bateria adormecer
+powercfg -SETACVALUEINDEX SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0
+powercfg -SETDCVALUEINDEX SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 3
+ECHO Ao apertar o botão de desligar, desligar e não adormecer
+powercfg -SETACVALUEINDEX SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 7648efa3-dd9c-4e3e-b566-50f929386280 3
+powercfg -SETDCVALUEINDEX SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 7648efa3-dd9c-4e3e-b566-50f929386280 3
+ECHO Desabilitar hibernação de HD/SSD
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT 0012ee47-9041-4b5d-9b77-535fba8b1442 6738e2c4-e8a5-4a42-b16a-e040e769756e 0
+powercfg /SETACVALUEINDEX SCHEME_CURRENT 0012ee47-9041-4b5d-9b77-535fba8b1442 6738e2c4-e8a5-4a42-b16a-e040e769756e 0
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
 REM Vivaldi
