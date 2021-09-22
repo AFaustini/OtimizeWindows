@@ -107,6 +107,9 @@ REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\ForceSynchroniz
 REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
 
+REM Desabilitar aplicativos usar meu ID de propaganda
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
+
 REM *** Desabilitar hibernacao ***
 powercfg -h off 
 
