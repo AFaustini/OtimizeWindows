@@ -214,7 +214,7 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-In
 
 REM *** Instalar Winget ***
 
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.11692/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.12576/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
 
 REM *** Desinstalar apps padrão ***
 
