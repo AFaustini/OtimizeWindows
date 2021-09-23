@@ -314,9 +314,9 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /
 
 REM *** Desabilitar hibernação HD/SSD e demais configs de energia***
 ECHO Esquema Balanceado
-REM powercfg -SETACTIVE 381b4222-f694-41f0-9685-ff5bb260df2e
+powercfg -SETACTIVE 381b4222-f694-41f0-9685-ff5bb260df2e
 ECHO Esquema Balanceado Ryzen
-powercfg -SETACTIVE 9897998c-92de-4669-853f-b7cd3ecb2790
+rem powercfg -SETACTIVE 9897998c-92de-4669-853f-b7cd3ecb2790
 ECHO Marcando configurações na bateria como nunca
 powercfg.exe -change -monitor-timeout-dc 5
 powercfg.exe -change -standby-timeout-dc 15
@@ -371,6 +371,9 @@ reg add "HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys" /v "Flags" /t
 
 REM *** Desabilitar Assistência Remota ***
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowToGetHelp /d 0 /t REG_DWORD /f
+
+REM *** Desabilitar Modo de Jogo ***
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\GameBar" /v AutoGameModeEnabled /d 0 /t REG_DWORD /f
 
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
