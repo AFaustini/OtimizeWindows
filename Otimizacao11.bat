@@ -212,10 +212,6 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:SmbDirect /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-Features /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
 
-REM *** Instalar Winget ***
-
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.0.12576/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-
 REM *** Desinstalar apps padrão ***
 
 winget uninstall Microsoft.BingNews_8wekyb3d8bbwe -h
@@ -237,8 +233,8 @@ winget uninstall Microsoft.ZuneVideo_8wekyb3d8bbwe -h
 winget uninstall microsoft.windowscommunicationsapps_8wekyb3d8bbwe -h
 winget uninstall Microsoft.Paint_8wekyb3d8bbwe -h
 winget uninstall Microsoft.549981C3F5F10_8wekyb3d8bbwe -h
-winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
 winget uninstall MicrosoftTeams_8wekyb3d8bbwe -h
+rem winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
 rem winget uninstall Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe -h
 rem winget uninstall Microsoft.ScreenSketch_8wekyb3d8bbwe -h
 rem winget uninstall Microsoft.OneDrive -h
