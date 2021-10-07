@@ -377,7 +377,10 @@ REM *** Desabilitar novo menu de contexto ***
 rem reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 
 REM *** Desabilitar nova barra do Explorer ***
-rem reg add "HKCU\Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32" /f /ve​
+rem reg add "HKCU\Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32" /f /ve
+
+REM *** Desabilitar VBS ***
+REG ADD "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity /d 0 /t REG_DWORD /f
 
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
