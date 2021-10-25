@@ -193,7 +193,6 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-HTTP-Activation /R
 DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-NonHTTP-Activation /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:NetFx4Extended-ASPNET45 /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:MediaPlayback /Remove
-DISM.exe /Online /norestart /Disable-Feature /featurename:WindowsMediaPlayer /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-XPSServices-Features /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:MSRDC-Infrastructure /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:TelnetClient /Remove
@@ -211,6 +210,13 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-TCP-PortSharing45 
 DISM.exe /Online /norestart /Disable-Feature /featurename:SmbDirect /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-Features /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
+DISM /Online /Remove-Capability /CapabilityName:App.StepsRecorder~~~~0.0.1.0
+DISM /Online /Remove-Capability /CapabilityName:App.Support.QuickAssist~~~~0.0.1.0
+DISM /Online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0
+DISM /Online /Remove-Capability /CapabilityName:Hello.Face.20134~~~~0.0.1.0
+DISM /Online /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
+DISM /Online /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
+
 
 REM *** Desinstalar apps padrão ***
 
