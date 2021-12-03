@@ -391,6 +391,10 @@ REG ADD "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard" /v Ena
 REM *** Alterar Tamanho de Cache de Icones ***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "Max Cached Icons" /t REG_SZ /d 4096 /f
 
+REM *** Desabilitar Otimizacao de Entrega ***
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /v DODownloadMode /d 0 /t REG_DWORD /f
+
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
 REM Vivaldi
