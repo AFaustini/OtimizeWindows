@@ -1,3 +1,4 @@
+chcp 65001
 @rem *** Desabilitar alguns serviços ***
 sc stop DiagTrack
 sc stop diagnosticshub.standardcollector.service
