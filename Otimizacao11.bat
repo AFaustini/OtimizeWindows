@@ -398,6 +398,11 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimiza
 REM *** Desabilitar Mobile Hotspot ***
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Network Connections" /v NC_ShowSharedAccessUI /d 0 /t REG_DWORD /f
 
+REM *** Desabilitar conteúdos sugeridos nas configurações ***
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338393Enabled" /d 0 /t REG_DWORD /f
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353694Enabled" /d 0 /t REG_DWORD /f
+REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353696Enabled" /d 0 /t REG_DWORD /f
+
 
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 taskkill /f /im msedge.exe
