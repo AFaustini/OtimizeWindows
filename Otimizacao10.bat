@@ -96,7 +96,6 @@ sc config BthAvctpSvc start= disabled
 sc config BITS start= demand
 sc config DPS start= disabled
 
-
 REM *** Tweaks de tarefas agendadas ***
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /Disable
@@ -145,7 +144,6 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Sta
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SmartScreenEnabled /t REG_SZ /d Off /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost" /v "SmartScreenEnabled" /t "REG_SZ" /d "Off" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowFullControl /t REG_DWORD /d 0 /f
-
 
 @REM Configurações -> Privacidade -> Geral -> Permitir aplicativos usar meu ID de propaganda
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
@@ -689,28 +687,29 @@ REM Spotify
 del /s /q "%LocalAppData%\Spotify\Storage"
 icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 
-REM ***Instalar Clientes de Jogos ***
 
+REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -h
 REM winget install GOG.Galaxy -h
 REM winget install ElectronicArts.EADesktop -h
 REM winget install Valve.Steam -h
 REM winget install Ubisoft.Connect -h
+REM winget install Twitch.Twitch -h
 REM winget install Playnite.Playnite -h
 
 REM ***Instalar Frameworks ***
 
-winget install Microsoft.dotnetRuntime.3-x64 -h
-winget install Microsoft.dotnetRuntime.5-x64 -h
+winget install Microsoft.dotnetRuntime.3-x64 -s winget -h
+winget install Microsoft.dotnetRuntime.5-x64 -s winget -h
 
 REM ***Instalar Emuladores***
 REM cinst cemu -y
-REM winget install DolphinEmu.DolphinEmu -h
+REM winget install DolphinEmu.DolphinEmu -s winget -h
 REM cinst fs-uae -y
 REM cinst mame -y
 REM cinst nestopia -y
-REM winget install PPSSPPTeam.PPSSPP -h
-REM winget install Libretro.RetroArch -h
+REM winget install PPSSPPTeam.PPSSPP -s winget -h
+REM winget install Libretro.RetroArch -s winget -h
 REM cinst snes9x -y
 REM cinst visualboyadvance -y
 REM cinst winvice -y
@@ -720,76 +719,80 @@ REM cinst intel-chipset-device-software -y
 REM cinst intel-graphics-driver -y
 REM cinst intel-rst-driver -y
 REM cinst nvidia-display-driver -y
-REM cinst realtek-hd-audio-driver -y
-REM winget install AMD.RyzenMaster -h
+REM cinst realtek-s winget -hd-audio-driver -y
+REM winget install AMD.RyzenMaster -s winget -h
 
 REM ***Instalar Navegadores e Programas para Internet***
-REM winget install eloston.ungoogled-chromium -h
-REM winget install Dropbox.Dropbox -h
-REM winget install KDE.Falkon -h
-REM winget install Mozilla.Firefox -h
-REM winget install Opera.Opera -h
-REM winget install PicoTorrent.PicoTorrent -h
-REM winget install VivaldiTechnologies.Vivaldi -h
-REM winget install Microsoft.OneDrive -h
-REM winget install TIDALMusicAS.TIDAL -h
+REM winget install eloston.ungoogled-chromium -s winget -h
+REM winget install Dropbox.Dropbox -s winget -h
+REM winget install KDE.Falkon -s winget -h
+REM winget install Mozilla.Firefox -s winget -h
+REM winget install Opera.Opera -s winget -h
+REM winget install PicoTorrent.PicoTorrent -s winget -h
+REM winget install VivaldiTechnologies.Vivaldi -s winget -h
+REM winget install Microsoft.OneDrive -s winget -h
+REM winget install TIDALMusicAS.TIDAL -s winget -h
 
 REM ***Instalar Aplicativos***
-REM winget install calibre.calibre -h
-REM winget install PeterPawlowski.foobar2000 -h
-REM winget install IrfanSkiljan.IrfanView -h
+winget install Files-Community.Files -s winget -h
+REM winget install calibre.calibre -s winget -h
+REM winget install PeterPawlowski.foobar2000 -s winget -h
+REM winget install IrfanSkiljan.IrfanView -s winget -h
 REM cinst kis -y
-REM winget install XBMCFoundation.Kodi -h
-REM winget install CodeJelly.Launchy -h
+REM winget install XBMCFoundation.Kodi -s winget -h
+REM winget install CodeJelly.Launchy -s winget -h
 REM cinst launchyqt -y
-REM winget install LibreOffice.LibreOffice -h
-REM winget install MacType.MacType -h
-REM cinst memreduct -y
-REM winget install MKVToolNix.MKVToolNix -h
-REM winget install clsid2.mpc-hc -h
+REM winget install LibreOffice.LibreOffice -s winget -h
+REM winget install MacType.MacType -s winget -h
+REM winget install Henry++.MemReduct -s winget -h
+REM winget install MKVToolNix.MKVToolNix -s winget -h
+REM winget install clsid2.mpc-s winget -hc -s winget -h
 REM cinst mpc-be -y
 REM cinst msiafterburner -y
-REM winget install Notepad++.Notepad++ -h
-REM winget install Microsoft.Office -h
+REM winget install Notepad++.Notepad++ -s winget -h
+REM winget install Microsoft.Office -s winget -h
 REM cinst oldcalc -y
 REM cinst openal -y
-REM cinst paint.net -y
-REM winget install QL-Win.QuickLook -h
-REM winget install QuiteRSS.QuiteRSS -h
-REM winget install PunkLabs.RocketDock -h
-REM winget install Piriform.Speccy -h
-REM winget install SumatraPDF.SumatraPDF -h
-REM winget install RandomEngy.VidCoder -h
-REM winget install VideoLAN.VLC -h
+REM paint.net
+REM winget install 9NBHCS1LX4R0 -s msstore -h 
+REM winget install QL-Win.QuickLook -s winget -h
+REM winget install QuiteRSS.QuiteRSS -s winget -h
+REM winget install PunkLabs.RocketDock -s winget -h
+REM winget install Piriform.Speccy -s winget -h
+REM winget install SumatraPDF.SumatraPDF -s winget -h
+REM winget install RandomEngy.VidCoder -s winget -h
+REM winget install VideoLAN.VLC -s winget -h
 REM cinst windowblinds -y
-REM winget install Microsoft.winfile -h
-REM cinst xplorer2 -y
-REM winget install ModernFlyouts.ModernFlyouts -h
-REM winget install Files-Community.Files -h
-REM winget install Open-Shell.Open-Shell-Menu -h
-REM winget install t1m0thyj.WinDynamicDesktop -h
+REM winget install Microsoft.winfile -s winget -h
+REM xplorer² lite
+REM winget install 9NBLGGH404XM -s msstore -h 
+REM winget install ModernFlyouts.ModernFlyouts -s winget -h
+REM winget install Files-Community.Files -s winget -h
+REM winget install Open-Shell.Open-Shell-Menu -s winget -h
+REM winget install t1m0thyj.WinDynamicDesktop -s winget -h
 
 REM ***Instalar Utilitários***
-REM winget install 7zip.7zip -h
-REM winget install 7zip.7zipAlpha -h
-REM winget install BleachBit.BleachBit -h
-REM winget install Piriform.CCleaner -h
+REM winget install 7zip.7zip -s winget -h
+REM winget install 7zip.7zipAlpha -s winget -h
+REM winget install BleachBit.BleachBit -s winget -h
+REM winget install Piriform.CCleaner -s winget -h
 REM cinst compactgui -y
-REM winget install CPUID.CPU-Z -h
-REM winget install Piriform.Defraggler -h
+REM winget install CPUID.CPU-Z -s winget -h
+REM winget install Piriform.Defraggler -s winget -h
 REM cinst directx -y
-REM cinst eset.nod32 -y
-REM winget install flux.flux -h
-REM winget install TechPowerUp.GPU-Z -h
-REM winget install REALiX.HWiNFO -h
-REM winget install Microsoft.PowerToys -h
-REM cinst rainmeter -y
-REM winget install Piriform.Recuva -h
+REM winget install ESET.Nod32 -s winget -h
+REM winget install ESET.Security -s winget -h
+REM winget install flux.flux -s winget -h
+REM winget install TechPowerUp.GPU-Z -s winget -h
+REM winget install REALiX.HWiNFO -s winget -h
+REM winget install Microsoft.PowerToys -s winget -h
+REM winget install Rainmeter.Rainmeter -s winget -h
+REM winget install Piriform.Recuva -s winget -h
 REM cinst regscanner -y
-REM cinst renamer -y
-REM winget install AntibodySoftware.WizTree -h
-REM winget install Microsoft.WindowsTerminal -h
-REM winget install Lexikos.AutoHotkey -h
+REM winget install den4b.ReNamer -s winget -h
+REM winget install AntibodySoftware.WizTree -s winget -h
+REM winget install Microsoft.WindowsTerminal -s winget -h
+REM winget install Lexikos.AutoHotkey -s winget -h
 
 TIMEOUT /T 5
 taskkill /f /im explorer.exe
