@@ -114,6 +114,9 @@ reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enab
 REM *** Desabilitar hibernacao ***
 powercfg -h off 
 
+REM *** Instalar Winget ***
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.2.3411-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+
 REM *** Instalar .NET Framework 3.5 ***
 Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
 
