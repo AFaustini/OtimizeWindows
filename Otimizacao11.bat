@@ -480,7 +480,8 @@ REM winget install Notepad++.Notepad++ -s winget -h
 REM winget install Microsoft.Office -s winget -h
 REM cinst oldcalc -y
 REM cinst openal -y
-REM cinst paint.net -y
+REM paint.net
+REM winget install 9NBHCS1LX4R0 -s msstore -h 
 REM winget install QL-Win.QuickLook -s winget -h
 REM winget install QuiteRSS.QuiteRSS -s winget -h
 REM winget install PunkLabs.RocketDock -s winget -h
@@ -490,7 +491,8 @@ REM winget install RandomEngy.VidCoder -s winget -h
 REM winget install VideoLAN.VLC -s winget -h
 REM cinst windowblinds -y
 REM winget install Microsoft.winfile -s winget -h
-REM cinst xplorer2 -y
+REM xplorer² lite
+REM winget install 9NBLGGH404XM -s msstore -h 
 REM winget install ModernFlyouts.ModernFlyouts -s winget -h
 REM winget install Files-Community.Files -s winget -h
 REM winget install Open-Shell.Open-Shell-Menu -s winget -h
@@ -505,7 +507,8 @@ REM cinst compactgui -y
 REM winget install CPUID.CPU-Z -s winget -h
 REM winget install Piriform.Defraggler -s winget -h
 REM cinst directx -y
-REM cinst eset.nod32 -y
+REM winget install ESET.Nod32 -s winget -h
+REM winget install ESET.Security -s winget -h
 REM winget install flux.flux -s winget -h
 REM winget install TechPowerUp.GPU-Z -s winget -h
 REM winget install REALiX.HWiNFO -s winget -h
