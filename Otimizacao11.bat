@@ -219,32 +219,9 @@ DISM /Online /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
 DISM /Online /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
 
 
-REM *** Desinstalar apps padrão ***
+REM *** Remoção Apps Store ***
 
-winget uninstall Microsoft.BingNews_8wekyb3d8bbwe -h
-winget uninstall Microsoft.BingWeather_8wekyb3d8bbwe -h
-winget uninstall Microsoft.GetHelp_8wekyb3d8bbwe -h
-winget uninstall Microsoft.Getstarted_8wekyb3d8bbwe -h
-winget uninstall Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe -h
-winget uninstall Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe -h
-winget uninstall Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe -h
-winget uninstall Microsoft.People_8wekyb3d8bbwe -h
-winget uninstall Microsoft.WindowsAlarms_8wekyb3d8bbwe -h
-winget uninstall Microsoft.WindowsCamera_8wekyb3d8bbwe -h
-winget uninstall Microsoft.WindowsMaps_8wekyb3d8bbwe -h
-winget uninstall Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe -h
-winget uninstall Microsoft.YourPhone_8wekyb3d8bbwe -h
-winget uninstall Microsoft.ZuneMusic_8wekyb3d8bbwe -h
-winget uninstall Microsoft.ZuneVideo_8wekyb3d8bbwe -h
-winget uninstall microsoft.windowscommunicationsapps_8wekyb3d8bbwe -h
-winget uninstall Microsoft.Paint_8wekyb3d8bbwe -h
-winget uninstall Microsoft.549981C3F5F10_8wekyb3d8bbwe -h
-winget uninstall MicrosoftTeams_8wekyb3d8bbwe -h
-rem winget uninstall Microsoft.Windows.Photos_8wekyb3d8bbwe -h
-rem winget uninstall Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe -h
-rem winget uninstall Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe -h
-rem winget uninstall Microsoft.ScreenSketch_8wekyb3d8bbwe -h
-rem winget uninstall Microsoft.OneDrive -h
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | where-object {$_.name -notlike '*xbox*'} | Remove-AppxPackage"
 
 REM *** Habilitar Printscreen para Snipping Tool ***
 
