@@ -220,12 +220,13 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:WCF-TCP-PortSharing45 
 DISM.exe /Online /norestart /Disable-Feature /featurename:SmbDirect /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-Features /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
-DISM /Online /Remove-Capability /CapabilityName:App.StepsRecorder~~~~0.0.1.0
-DISM /Online /Remove-Capability /CapabilityName:App.Support.QuickAssist~~~~0.0.1.0
-DISM /Online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0
-DISM /Online /Remove-Capability /CapabilityName:Hello.Face.20134~~~~0.0.1.0
-DISM /Online /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
-DISM /Online /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:App.StepsRecorder~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:App.Support.QuickAssist~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Hello.Face.20134~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.WordPad~~~~0.0.1.0
 
 REM *** Remoção Apps Store ***
 
