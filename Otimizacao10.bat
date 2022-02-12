@@ -569,6 +569,15 @@ DISM.exe /Online /norestart /Disable-Feature /featurename:Internet-Explorer-Opti
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-Features /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:FaxServicesClientPackage /Remove
 DISM.exe /Online /norestart /Disable-Feature /featurename:Printing-Foundation-InternetPrinting-Client /Remove
+DISM /Online /norestart /Remove-Capability /CapabilityName:App.StepsRecorder~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:App.Support.QuickAssist~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Hello.Face.18967~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Hello.Face.Migration.18967~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.MSPaint~~~~0.0.1.0
+DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.WordPad~~~~0.0.1.0
 
 REM Remover Apps da Store
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | where-object {$_.name -notlike '*xbox*'} | Remove-AppxPackage"
