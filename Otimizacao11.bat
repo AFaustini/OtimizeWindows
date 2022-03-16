@@ -402,6 +402,10 @@ REM *** Desabilitar propagandas no Explorador de Arquivos ***
 
 REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSyncProviderNotifications" /d 0 /t REG_DWORD /f
 
+REM *** Desabilitar Dicas e Sugestões ***
+
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableSoftLanding" /d 1 /t REG_DWORD /f
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 
 taskkill /f /im msedge.exe
