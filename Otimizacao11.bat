@@ -406,7 +406,7 @@ REM *** Desabilitar Dicas e Sugestões ***
 
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableSoftLanding" /d 1 /t REG_DWORD /f
 
-REM *** Desabilitar busca do bing no iniciar ***
+REM *** Desabilitar busca do bing na pesquisa ***
 
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_DWORD /D 0 /F
 
