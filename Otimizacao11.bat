@@ -424,6 +424,10 @@ REM *** Remover Marca Watermark de PC não suportado ***
 rem REG ADD "HKEY_CURRENT_USER\Control Panel\UnsupportedHardwareNotificationCache" /V SV1 /T REG_DWORD /D 0 /F
 rem REG ADD "HKEY_CURRENT_USER\Control Panel\UnsupportedHardwareNotificationCache" /V SV1 /T REG_DWORD /D 0 /F
 
+REM *** Desabilitar Reabrir apps ao reiniciar ***
+rem REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V PersistBrowsers /T REG_DWORD /D 0 /F
+rem REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_DWORD /D 0 /F
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 
 taskkill /f /im msedge.exe
