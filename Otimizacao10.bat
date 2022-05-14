@@ -579,7 +579,8 @@ DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.MSP
 DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.WordPad~~~~0.0.1.0
 
 REM Remover Apps da Store
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Remoção Apps Store"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage -allusers | Remove-AppxPackage"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppXPackage *WindowsStore* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}"Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppXPackage *WindowsStore* -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}"
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "FeatureManagementEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "OemPreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
