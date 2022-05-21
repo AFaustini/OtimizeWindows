@@ -428,6 +428,10 @@ REM *** Desabilitar Reabrir apps ao reiniciar ***
 rem REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V PersistBrowsers /T REG_DWORD /D 0 /F
 rem REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_DWORD /D 0 /F
 
+REM *** Desabilitar busca web na barra de pesquisa ***
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_DWORD /D 0 /F
+REG ADD "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchBoxSuggestions /T REG_DWORD /D 1 /F
+
 REM *** Desabilitar escrita de Cache de navegadores e streaming ***
 
 taskkill /f /im msedge.exe
