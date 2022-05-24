@@ -475,8 +475,9 @@ REM winget install Playnite.Playnite -h
 
 REM ***Instalar Frameworks ***
 
-winget install Microsoft.dotnetRuntime.3-x64 -s winget -h
-winget install Microsoft.dotnetRuntime.5-x64 -s winget -h
+winget install Microsoft.DotNet.DesktopRuntime.3_1 -s winget -h
+winget install Microsoft.DotNet.DesktopRuntime.5 -s winget -h
+winget install Microsoft.DotNet.DesktopRuntime.6 -s winget -h
 
 REM ***Instalar Emuladores***
 REM cinst cemu -y
