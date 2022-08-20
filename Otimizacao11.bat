@@ -519,20 +519,20 @@ REM winget install Microsoft.OneDrive -s winget -h
 REM winget install TIDALMusicAS.TIDAL -s winget -h
 
 REM ***Instalar Aplicativos***
-winget install Files-Community.Files -s winget -h
+rem winget install Files-Community.Files -s winget -h
 REM winget install calibre.calibre -s winget -h
 REM winget install PeterPawlowski.foobar2000 -s winget -h
 REM winget install IrfanSkiljan.IrfanView -s winget -h
 REM cinst kis -y
 REM winget install XBMCFoundation.Kodi -s winget -h
 REM winget install CodeJelly.Launchy -s winget -h
-REM cinst launchyqt -y
 REM winget install LibreOffice.LibreOffice -s winget -h
 REM winget install MacType.MacType -s winget -h
 REM winget install Henry++.MemReduct -s winget -h
 REM winget install MKVToolNix.MKVToolNix -s winget -h
-REM winget install clsid2.mpc-s winget -hc -s winget -h
-REM cinst mpc-be -y
+REM winget install clsid2.mpc -s winget -h
+REM mpc-be
+REM winget install 9PD88QB3BGKN -s msstore -h 
 REM cinst msiafterburner -y
 REM winget install Notepad++.Notepad++ -s winget -h
 REM winget install Microsoft.Office -s winget -h
