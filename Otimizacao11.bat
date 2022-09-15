@@ -226,7 +226,7 @@ DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.Wor
 
 REM *** Remoção Apps Store ***
 
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*store*'} | Remove-AppxPackage"
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*GamingApp*'} | where-object {$_.name -notlike '*Winget*'} |where-object {$_.name -notlike '*store*'} |  where-object {$_.name -notlike '*DesktopAppInstaller*'} |where-object {$_.name -notlike '*xbox*'} | where-object {$_.name -notlike '*terminal*'} |Remove-AppxPackage"
 
 REM *** Habilitar Printscreen para Snipping Tool ***
 
