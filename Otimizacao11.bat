@@ -363,6 +363,7 @@ reg add "HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys" /v "Flags" /t
 REM *** Desabilitar Assistência Remota ***
 
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowToGetHelp /d 0 /t REG_DWORD /f
+netsh advfirewall firewall set rule group="Remote Assistance" new enable=no
 
 REM *** Desabilitar Modo de Jogo ***
 
@@ -491,6 +492,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection" 
 
 REM *** Desabilitar historico de atividades ***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v PublishUserActivities /t REG_DWORD /d 0 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v UploadUserActivities /t REG_DWORD /d 0 /f
 
 REM *** Desabilitar historico de pesquisa ***
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v IsDeviceSearchHistoryEnabled /t REG_DWORD /d 0 /f
@@ -532,6 +534,56 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy" /v Verif
 
 REM ***Desabilitar Isolamento de Nucleo***
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v Enabled /t REG_DWORD /d 0 /f
+
+REM ***Mostrar mais Pins no Iniciar***
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_Layout /t REG_DWORD /d 0 /f
+
+REM ***Desabilitar ID de Anuncio***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo" /v DisabledByGroupPolicy /t REG_DWORD /d 1 /f
+
+REM ***Desabilitar Experiencias Compartilhadas***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v EnableCdp /t REG_DWORD /d 0 /f
+
+REM ***Desabilitar Descoberta de Rede e Compartilhamento de Impressoras***
+netsh advfirewall firewall set rule group="Network Discovery" new enable=No
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=No
+
+REM *** Desabilitar memória virtual ***
+DISM /Online /Add-Capability /CapabilityName:WMIC~~~~
+wmic computersystem where name="%computername%" set AutomaticManagedPagefile=False
+wmic pagefileset where name="C:\\pagefile.sys" delete
+
+REM ***Desabilitar Pesquisa na nuvem pessoal***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCloudSearch /t REG_DWORD /d 0 /f
+
+REM *** Desabilitar SmartScreen ***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /V "EnableSmartScreen" /T REG_DWORD /D 0 /F
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /V "ShellSmartScreenLevel" /F
+
+REM ***Desabilitar Ações Sugeridas***
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SmartActionPlatform\SmartClipboard" /v Disabled /t REG_DWORD /d 1 /f
+
+REM ***Desabilitar Stickers no Desktop***
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers" /V "EnableStickers" /F
+
+REM ***Desabilitar propagandas na tela de bloqueio**
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V "RotatingLockScreenOverlayEnabled" /T REG_DWORD /D 0 /F
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V "SubscribedContent-338387Enabled" /T REG_DWORD /D 0 /F
+
+REM ***Desabilitar saiba mais sobre papel de parede do Spotlight**
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /V "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}" /T REG_DWORD /D 1 /F
+
+REM ***Desabilitar envio de escrita a Microsoft*
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput" /V "AllowLinguisticDataCollection" /T REG_DWORD /D 0 /F
+
+REM ***Desabilitar Experiencias Personalizadas***
+reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableTailoredExperiencesWithDiagnosticData" /t REG_DWORD /d 1 /f
+
+REM ***Desabilitar reconhecimento de voz online***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization" /v "AllowInputPersonalization" /t REG_DWORD /d 0 /f
+
+REM ***Desabilitar auxilios na escrita***
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Input\Settings" /v "InsightsEnabled" /t REG_DWORD /d 0 /f
 
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
