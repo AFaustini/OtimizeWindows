@@ -585,6 +585,9 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization" /v
 REM ***Desabilitar auxilios na escrita***
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Input\Settings" /v "InsightsEnabled" /t REG_DWORD /d 0 /f
 
+REM ***Aumentar velocidade dos menus***
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v "MenuShowDelay" /t REG_SZ /d 5 /f
+
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install GOG.Galaxy -h -s winget --accept-source-agreements --accept-package-agreements
