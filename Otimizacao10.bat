@@ -818,15 +818,13 @@ REM winget install MacType.MacType -s winget -h --accept-source-agreements --acc
 REM winget install Henry++.MemReduct -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install MKVToolNix.MKVToolNix -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install clsid2.mpc -s winget -h --accept-source-agreements --accept-package-agreements
-REM mpc-be
-REM winget install 9PD88QB3BGKN -s msstore -h --accept-source-agreements --accept-package-agreements 
+REM winget install 9PD88QB3BGKN -s msstore -h --accept-source-agreements --accept-package-agreements & rem mpc-be
 REM cinst msiafterburner -y
 REM winget install Notepad++.Notepad++ -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Microsoft.Office -s winget -h --accept-source-agreements --accept-package-agreements
 REM cinst oldcalc -y
 REM cinst openal -y
-REM paint.net
-REM winget install 9NBHCS1LX4R0 -s msstore -h --accept-source-agreements --accept-package-agreements 
+REM winget install 9NBHCS1LX4R0 -s msstore -h --accept-source-agreements --accept-package-agreements & rem paint.net
 REM winget install QL-Win.QuickLook -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install QuiteRSS.QuiteRSS -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install PunkLabs.RocketDock -s winget -h --accept-source-agreements --accept-package-agreements
@@ -836,12 +834,12 @@ REM winget install RandomEngy.VidCoder -s winget -h --accept-source-agreements -
 REM winget install VideoLAN.VLC -s winget -h --accept-source-agreements --accept-package-agreements
 REM cinst windowblinds -y
 REM winget install Microsoft.winfile -s winget -h --accept-source-agreements --accept-package-agreements
-REM xplorer² lite
-REM winget install 9NBLGGH404XM -s msstore -h --accept-source-agreements --accept-package-agreements 
+REM winget install 9NBLGGH404XM -s msstore -h --accept-source-agreements --accept-package-agreements & rem xplorer² lite
 REM winget install ModernFlyouts.ModernFlyouts -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Files-Community.Files -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Open-Shell.Open-Shell-Menu -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install t1m0thyj.WinDynamicDesktop -s winget -h --accept-source-agreements --accept-package-agreements
+REM winget install File-New-Project.EarTrumpet -s winget -h --accept-source-agreements --accept-package-agreements
 
 REM ***Instalar Utilitários***
 REM winget install 7zip.7zip -s winget -h --accept-source-agreements --accept-package-agreements
@@ -851,7 +849,7 @@ REM winget install Piriform.CCleaner -s winget -h --accept-source-agreements --a
 REM cinst compactgui -y
 REM winget install CPUID.CPU-Z -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Piriform.Defraggler -s winget -h --accept-source-agreements --accept-package-agreements
-REM cinst directx -y
+REM winget install Microsoft.DirectX -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install ESET.Nod32 -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install ESET.Security -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install flux.flux -s winget -h --accept-source-agreements --accept-package-agreements
@@ -865,6 +863,7 @@ REM winget install den4b.ReNamer -s winget -h --accept-source-agreements --accep
 REM winget install AntibodySoftware.WizTree -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Microsoft.WindowsTerminal -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Lexikos.AutoHotkey -s winget -h --accept-source-agreements --accept-package-agreements
+REM winget install CodeSector.TeraCopy -s winget -h --accept-source-agreements --accept-package-agreements
 
 TIMEOUT /T 5
 taskkill /f /im explorer.exe
