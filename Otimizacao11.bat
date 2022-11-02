@@ -668,6 +668,7 @@ REM winget install ModernFlyouts.ModernFlyouts -s winget -h --accept-source-agre
 REM winget install Files-Community.Files -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Open-Shell.Open-Shell-Menu -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install t1m0thyj.WinDynamicDesktop -s winget -h --accept-source-agreements --accept-package-agreements
+REM winget install File-New-Project.EarTrumpet -s winget -h --accept-source-agreements --accept-package-agreements
 
 REM ***Instalar Utilitários***
 REM winget install 7zip.7zip -s winget -h --accept-source-agreements --accept-package-agreements
@@ -692,6 +693,7 @@ REM winget install den4b.ReNamer -s winget -h --accept-source-agreements --accep
 REM winget install AntibodySoftware.WizTree -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Microsoft.WindowsTerminal -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install Lexikos.AutoHotkey -s winget -h --accept-source-agreements --accept-package-agreements
+REM winget install CodeSector.TeraCopy -s winget -h --accept-source-agreements --accept-package-agreements
 
 REG DELETE "HKCU\Control Panel\Quick Actions" /F
 TIMEOUT /T 5
