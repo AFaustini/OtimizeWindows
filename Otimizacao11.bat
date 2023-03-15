@@ -475,7 +475,7 @@ del /s /q "%LocalAppData%\Spotify\Storage"
 icacls "%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
 
 REM *** Desabilitar Cliente DNS ***
-reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache" /v Start /t REG_DWORD /d 4 /f
+rem reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache" /v Start /t REG_DWORD /d 4 /f
 
 REM *** Desabilitar Acompanhamento de Lançamento de Aplicativos ***
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\EdgeUI" /v DisableMFUTracking /t REG_DWORD /d 1 /f
