@@ -14,6 +14,10 @@ REM *** Habilitar modo de eficiência ***
 
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v EfficiencyMode /d 0 /t REG_DWORD /f
 
+REM *** Remover Botao Acrobat ***
+
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v ShowAcrobatSubscriptionButton /d 0 /t REG_DWORD /f
+
 REM *** Desabilitar algumas permissões ***
 
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v VideoCaptureAllowed /d 0 /t REG_DWORD /f
