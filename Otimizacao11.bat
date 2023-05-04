@@ -121,6 +121,10 @@ REM *** Instalar .NET Framework 3.5 ***
 
 Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
 
+REM *** Instalar DirectPlay (importante para jogos 2D antigos) ***
+
+Dism /online /norestart /Enable-Feature /FeatureName:"DirectPlay"
+
 REM *** Remover Features Não Usadas ***
 
 DISM.exe /Online /norestart /Disable-Feature /featurename:SimpleTCP /Remove
