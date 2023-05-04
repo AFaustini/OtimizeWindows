@@ -450,6 +450,10 @@ REM start explorer.exe.
 REM *** Instalar .NET Framework 3.5 ***
 Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
 
+REM *** Instalar DirectPlay (importante para jogos 2D antigos) ***
+
+Dism /online /norestart /Enable-Feature /FeatureName:"DirectPlay"
+
 REM *** Dark Mode Janelas Win32 ***
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v AccentColor /t REG_DWORD /d 171717 /f
