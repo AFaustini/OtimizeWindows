@@ -378,13 +378,6 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V Hiberbo
 REM *** Desabilitar Notificações Balão ***
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V EnableBalloonTips /T REG_dWORD /D 0 /F
 
-REM *** Tweaks de Rede ***
-netsh interface teredo set state disable
-netsh interface 6to4 set state disable disable
-netsh interface isatap set state disable
-REG ADD "HKLM\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters" /v "EnableICSIPv6" /t REG_DWORD /d 0 /f
-REG ADD "HKLM\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters" /v "DisabledComponents" /t REG_DWORD /d 255 /f
-
 REM *** Mostrar todos os icones na area de notificação ***
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F
 
