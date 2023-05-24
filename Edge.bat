@@ -20,8 +20,6 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v ShowAcrobatSubs
 
 REM *** Desabilitar algumas permissões ***
 
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v VideoCaptureAllowed /d 0 /t REG_DWORD /f
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v DefaultGeolocationSetting /d 2 /t REG_DWORD /f
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v AudioCaptureAllowed /d 0 /t REG_DWORD /f
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v DefaultSensorsSetting /d 2 /t REG_DWORD /f
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" /v DefaultNotificationsSetting /d 2 /t REG_DWORD /f
