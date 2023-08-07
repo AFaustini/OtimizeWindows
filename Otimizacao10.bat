@@ -612,9 +612,6 @@ REM ipconfig /flushdns
 rem reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache\Parameters" /v "MaxNegativeCacheTtl" /t "REG_DWORD" /d "0" /f
 rem reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache\Parameters" /v "MaxCacheTtl" /t "REG_DWORD" /d "1" /f
 
-REM ***Instalar Winget***
-rem Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Add-AppxPackage -Path https://github.com/microsoft/winget-cli/releases/download/v1.2.3411-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-
 REM *** Desabilitar reserva de armazenamento ***
 Reg Add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager" /v ShippedWithReserves /t REG_DWORD /d 0 /f
 Reg Add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager" /v PassedPolicy /t REG_DWORD /d 0 /f
@@ -762,6 +759,9 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenari
 
 REM *** Desabilitar VBS ***
 REG ADD "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity /d 0 /t REG_DWORD /f
+
+REM *** Instalar Winget ***
+Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Install-Module -Name Microsoft.WinGet.Client"
 
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
