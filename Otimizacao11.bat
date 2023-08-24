@@ -597,6 +597,9 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate" /v RemoveDes
 REM *** Habilitar prioridades no Update ***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v IsContinuousInnovationOptedIn /t REG_DWORD /d 1 /f
 
+REM *** Desabilitar abrir pesquisa ao passar o mouse ***
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds\DSB" /v OpenOnHover /t REG_DWORD /d 0 /f
+
 REM *** Instalar Winget ***
 Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Install-Module -Name Microsoft.WinGet.Client"
 
