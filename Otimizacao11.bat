@@ -603,6 +603,9 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds\DSB" 
 REM *** Habilitar Finalizar tarefa na barra de tarefas ***
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeveloperSettings" /v TaskbarEndTask /t REG_DWORD /d 1 /f
 
+REM *** Esconder extensões de tipos de arquivo conhecidos ***
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v HideFileExt /t REG_DWORD /d 1 /f
+
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install GOG.Galaxy -h -s winget --accept-source-agreements --accept-package-agreements
