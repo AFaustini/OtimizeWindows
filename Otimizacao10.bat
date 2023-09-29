@@ -697,6 +697,10 @@ icacls "%userprofile%\AppData\Roaming\TIDAL\Cache" /deny *S-1-1-0:(F)
 REM Spotify
 del /s /q "%LocalAppData%\Spotify\Storage"
 icacls "%%LocalAppData%\Spotify\Storage" /deny *S-1-1-0:(F)
+REM Qobuz
+del /s /q "%userprofile%\AppData\Roaming\Qobuz\Cache"
+icacls "%userprofile%\AppData\Roaming\Qobuz\Cache" /deny *S-1-1-0:(F)
+
 
 REM *** Desabilitar Cliente DNS ***
 REM reg add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache" /v Start /t REG_DWORD /d 4 /f
