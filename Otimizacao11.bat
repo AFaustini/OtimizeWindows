@@ -611,6 +611,13 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeveloperSe
 REM *** Esconder extensões de tipos de arquivo conhecidos ***
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v HideFileExt /t REG_DWORD /d 1 /f
 
+REM *** Desabilitar notificações no Menu Iniciar ***
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_AccountNotifications /t REG_DWORD /d 0 /f
+
+REM *** Desabilitar busca em Menu Iniciar e Barra de Tarefas ***
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Search\DisableSearch" /v value /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v DisableSearch /t REG_DWORD /d 1 /f
+
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install GOG.Galaxy -h -s winget --accept-source-agreements --accept-package-agreements
