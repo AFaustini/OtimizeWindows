@@ -227,7 +227,7 @@ DISM /Online /norestart /Remove-Capability /CapabilityName:Hello.Face.20134~~~~0
 DISM /Online /norestart /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
 DISM /Online /norestart /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
 DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.WordPad~~~~0.0.1.0
-DISM /Online /Remove-Capability /CapabilityName:VBSCRIPT~~~~
+rem DISM /Online /Remove-Capability /CapabilityName:VBSCRIPT~~~~
 
 REM *** Remoção Apps Store ***
 
