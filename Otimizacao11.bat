@@ -227,6 +227,7 @@ DISM /Online /norestart /Remove-Capability /CapabilityName:Hello.Face.20134~~~~0
 DISM /Online /norestart /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
 DISM /Online /norestart /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
 DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.WordPad~~~~0.0.1.0
+DISM /Online /Disable-Feature /FeatureName:"Recall" /Remove
 rem DISM /Online /Remove-Capability /CapabilityName:VBSCRIPT~~~~
 
 REM *** Remoção Apps Store ***
@@ -539,8 +540,8 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Capability
 
 REM ***Desabilitar Smart App Control***
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy" /v VerifiedAndReputablePolicyState /t REG_DWORD /d 0 /f
-
 REM ***Desabilitar Isolamento de Nucleo***
+
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v Enabled /t REG_DWORD /d 0 /f
 
 REM ***Mostrar mais Pins no Iniciar***
