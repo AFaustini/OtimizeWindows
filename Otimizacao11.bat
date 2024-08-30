@@ -227,7 +227,6 @@ DISM /Online /norestart /Remove-Capability /CapabilityName:Hello.Face.20134~~~~0
 DISM /Online /norestart /Remove-Capability /CapabilityName:MathRecognizer~~~~0.0.1.0
 DISM /Online /norestart /Remove-Capability /CapabilityName:Media.WindowsMediaPlayer~~~~0.0.12.0
 DISM /Online /norestart /Remove-Capability /CapabilityName:Microsoft.Windows.WordPad~~~~0.0.1.0
-DISM /Online /Disable-Feature /FeatureName:"Recall" /Remove
 rem DISM /Online /Remove-Capability /CapabilityName:VBSCRIPT~~~~
 
 REM *** Remoção Apps Store ***
@@ -632,6 +631,13 @@ REM *** Desabilitar Windows Recall ***
 
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsAI" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f
+DISM /Online /Disable-Feature /FeatureName:"Recall" /Remove
+
+REM *** Desabilitar UCPD ***
+
+sc config UCPD start=disabled
+schtasks /change /Disable /TN "\Microsoft\Windows\AppxDeploymentClient\UCPD velocity"
+
 
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
