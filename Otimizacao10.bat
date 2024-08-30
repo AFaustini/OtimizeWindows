@@ -765,8 +765,10 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenari
 REM *** Desabilitar VBS ***
 REG ADD "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity /d 0 /t REG_DWORD /f
 
-REM *** Instalar Winget ***
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Install-Module -Name Microsoft.WinGet.Client"
+REM *** Desabilitar UCPD ***
+
+sc config UCPD start=disabled
+schtasks /change /Disable /TN "\Microsoft\Windows\AppxDeploymentClient\UCPD velocity"
 
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements
