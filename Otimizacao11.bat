@@ -109,6 +109,14 @@ REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\ForceSynchroniz
 REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
 
+REM *** Desabilitar Ultimo Acesso Arquivos ***
+
+fsutil.exe behavior set disableLastAccess 1
+
+REM *** Desabilitar nome arquivos 8_3 ***
+
+fsutil.exe 8dot3name set 1
+
 REM *** Desabilitar aplicativos usar meu ID de propaganda ***
 
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
@@ -637,7 +645,6 @@ REM *** Desabilitar UCPD ***
 
 sc config UCPD start=disabled
 schtasks /change /Disable /TN "\Microsoft\Windows\AppxDeploymentClient\UCPD velocity"
-
 
 REM ***Instalar Clientes de Jogos ***
 REM winget install EpicGames.EpicGamesLauncher -s winget -h --accept-source-agreements --accept-package-agreements

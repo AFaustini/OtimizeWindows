@@ -129,6 +129,14 @@ REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\ForceSynchroniz
 REM schtasks /Change /TN "Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable
 REM schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
 
+REM *** Desabilitar Ultimo Acesso Arquivos ***
+
+fsutil.exe behavior set disableLastAccess 1
+
+REM *** Desabilitar nome arquivos 8_3 ***
+
+fsutil.exe 8dot3name set 1
+
 @rem *** Remover Telemetria e Coleta de Dados ***
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
