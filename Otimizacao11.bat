@@ -127,20 +127,20 @@ powercfg -h off
 
 REM *** Instalar .NET Framework 3.5 ***
 
-Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
+rem Dism /online /norestart /Enable-Feature /FeatureName:"NetFx3"
 
 REM *** Instalar DirectPlay (importante para jogos 2D antigos) ***
 
+Dism /online /norestart /Enable-Feature /FeatureName:"LegacyComponents"
 Dism /online /norestart /Enable-Feature /FeatureName:"DirectPlay"
 
 REM *** Instalar VBS (alguns instaladores usam) ***
 
-DISM /Online /Add-Capability /CapabilityName:VBSCRIPT~~~~
-
+rem DISM /Online /Add-Capability /CapabilityName:VBSCRIPT~~~~
 
 REM *** Remoção Apps Store ***
 
-Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*GamingApp*'} | where-object {$_.name -notlike '*Winget*'} |where-object {$_.name -notlike '*store*'} |  where-object {$_.name -notlike '*DesktopAppInstaller*'} |where-object {$_.name -notlike '*xbox*'} | where-object {$_.name -notlike '*terminal*'} |Remove-AppxPackage"
+rem Powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Get-AppxPackage | where-object {$_.name -notlike '*GamingApp*'} | where-object {$_.name -notlike '*Winget*'} |where-object {$_.name -notlike '*store*'} |  where-object {$_.name -notlike '*DesktopAppInstaller*'} |where-object {$_.name -notlike '*xbox*'} | where-object {$_.name -notlike '*terminal*'} |Remove-AppxPackage"
 
 REM *** Habilitar Printscreen para Snipping Tool ***
 
@@ -213,8 +213,6 @@ REM *** Desabilitar hibernação HD/SSD e demais configs de energia***
 
 ECHO Esquema Balanceado
 powercfg -SETACTIVE 381b4222-f694-41f0-9685-ff5bb260df2e
-ECHO Esquema Balanceado Ryzen
-rem powercfg -SETACTIVE 9897998c-92de-4669-853f-b7cd3ecb2790
 ECHO Marcando configurações na bateria como nunca
 powercfg.exe -change -monitor-timeout-dc 5
 powercfg.exe -change -standby-timeout-dc 15
@@ -242,9 +240,9 @@ reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v "JPEGImportQuality" /t REG_
 
 REM *** Tirar animações inuteís ***
 
-rem reg add "HKCU\Control Panel\Desktop" /v "UserPreferencesMask" /t REG_BINARY /d 9032078010000000 /f
-rem reg add "HKCU\Control Panel\Desktop\WindowMetrics" /v "MinAnimate" REG_SZ /d 0 /f
-rem reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarAnimations" /t REG_DWORD /d 0 /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" /v VisualFXSetting /t REG_DWORD /d 2 /f
+reg add "HKCU\Control Panel\Desktop" /v UserPreferencesMask /t REG_BINARY /d 90120000010000000000000000 /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics" /v MinAnimate /t REG_SZ /d 0 /f
 rem reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V "IconsOnly" /T REG_DWORD /D 1 /F
 rem reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V "ListviewAlphaSelect" /T REG_DWORD /D 1 /F
 rem reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v "DragFullWindows" /t REG_DWORD /d 0 /f
@@ -466,9 +464,9 @@ netsh advfirewall firewall set rule group="Network Discovery" new enable=No
 netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=No
 
 REM *** Desabilitar memória virtual ***
-DISM /Online /Add-Capability /CapabilityName:WMIC~~~~
-wmic computersystem where name="%computername%" set AutomaticManagedPagefile=False
-wmic pagefileset where name="C:\\pagefile.sys" delete
+rem DISM /Online /Add-Capability /CapabilityName:WMIC~~~~
+rem wmic computersystem where name="%computername%" set AutomaticManagedPagefile=False
+rem wmic pagefileset where name="C:\\pagefile.sys" delete
 
 REM ***Desabilitar Pesquisa na nuvem pessoal***
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCloudSearch /t REG_DWORD /d 0 /f
@@ -649,7 +647,7 @@ REM winget install Microsoft.WindowsTerminal -s winget -h --accept-source-agreem
 REM winget install Lexikos.AutoHotkey -s winget -h --accept-source-agreements --accept-package-agreements
 REM winget install CodeSector.TeraCopy -s winget -h --accept-source-agreements --accept-package-agreements
 
-REG DELETE "HKCU\Control Panel\Quick Actions" /F
+rem REG DELETE "HKCU\Control Panel\Quick Actions" /F
 TIMEOUT /T 5
 taskkill /f /im explorer.exe
 start explorer.exe
